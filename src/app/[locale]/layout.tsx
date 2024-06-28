@@ -4,6 +4,7 @@ import { getMessages } from "next-intl/server";
 import { redirect } from "next/navigation";
 import { Cairo, Kavoon, Lalezar, Leckerli_One } from "next/font/google";
 import { Locales } from "@/types/locales";
+import Header from "@/layout/header";
 
 // Base Font
 const cairo = Cairo({
@@ -50,6 +51,7 @@ export default async function LocaleLayout({
         className={`${cairo.variable} ${(locale === "ar" ? lelazar : leckerliOne).variable} ${kavoon.variable} font-base`}
       >
         <NextIntlClientProvider messages={messages}>
+          <Header locale={locale} />
           {children}
         </NextIntlClientProvider>
       </body>

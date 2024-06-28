@@ -1,4 +1,4 @@
-import SectionHeadding from "@/components/sectionHeadding";
+import SectionHeadding from "@/components/section-headding";
 import { useTranslations } from "next-intl";
 
 const quotesIcon = (

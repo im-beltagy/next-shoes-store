@@ -2,6 +2,7 @@ import Image from "next/image";
 import Nav from "./nav";
 import Actions from "./actions";
 import Link from "next/link";
+import { Locales } from "@/types/locales";
 
 function Brand() {
   return (
@@ -12,13 +13,13 @@ function Brand() {
   );
 }
 
-export default function Header() {
+export default function Header({ locale }: { locale: Locales }) {
   return (
     <header className="group/header z-50">
       <div className="relative mx-auto flex items-center justify-between gap-4 bg-white p-4 lg:container">
         <Brand />
         <Nav />
-        <Actions />
+        <Actions locale={locale} />
       </div>
     </header>
   );

@@ -1,7 +1,7 @@
 "use client";
 
-import SectionHeadding from "@/components/sectionHeadding";
-import ProductCard from "@/components/productCard";
+import SectionHeadding from "@/components/section-headding";
+import ProductCard from "@/components/product-card";
 import { ProductSum } from "@/types/products";
 import { useTranslations } from "next-intl";
 
