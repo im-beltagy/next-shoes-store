@@ -8,7 +8,7 @@ interface Props {
 
 export default function FeaturedProducts({ products }: Props) {
   return (
-    <section className="py-section-sm md:py-section-md container mx-auto max-w-screen-lg px-4">
+    <section className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
       <SectionHeadding
         headding="Featured Shoes"
         subheadding="Checkout The Featured Shoes"
