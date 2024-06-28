@@ -7,6 +7,7 @@ function Text() {
 
   return (
     <div className="relative z-10 col-span-7 grid gap-4 py-section-md max-md:justify-center md:py-section-md">
+    <div className="relative z-10 col-span-7 grid gap-4 py-section-md max-md:justify-center md:py-section-md">
       <h1 className="font-special text-3xl text-primary max-md:text-balance max-md:text-center md:text-4xl lg:text-5xl">
         {t("headline")}
       </h1>
@@ -35,6 +36,7 @@ export default function Hero() {
         <Text />
 
         {/* Image */}
+        <div className="bottom-0 left-0 col-span-5 w-full max-md:absolute max-md:h-full md:pt-section-md">
         <div className="bottom-0 left-0 col-span-5 w-full max-md:absolute max-md:h-full md:pt-section-md">
           <Image
             className="mx-auto"

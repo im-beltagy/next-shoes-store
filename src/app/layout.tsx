@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Multi language E-commerce App using Next.js, TypeScript, TailwindCSS and Next-Intl",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

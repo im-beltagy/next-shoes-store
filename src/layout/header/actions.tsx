@@ -1,4 +1,14 @@
+"use client";
+
+import {
+  useLocals,
+  useTranslate,
+} from "@/utils/localization/localization-hook";
+
 import Link from "next/link";
+import { Icon } from "@iconify/react";
+import { allLangs, defaultLang } from "@/utils/localization/config-lang";
+import { useRouter } from "next/navigation";
 
 const actions = [
   {
@@ -71,8 +81,24 @@ const actions = [
 ];
 
 export default function Actions() {
+  const { t, changeLang } = useTranslate();
+  const { currentLang } = useLocals();
+
+  const router = useRouter();
+
   return (
     <ul className="flex items-center gap-4 text-lg">
+      {allLangs.map((lang) => (
+        <li key={lang.code}>
+          <button
+            onClick={() => {
+              changeLang(lang.code);
+            }}
+          >
+            <Icon icon={lang.icon} />
+          </button>
+        </li>
+      ))}
       {/* Actions */}
       {actions.map((item) => (
         <li

@@ -1,3 +1,5 @@
+"use client";
+
 import { ProductSum } from "@/types/products";
 import FeaturedProducts from "../featured-products";
 import Features from "../features";
