@@ -1,17 +1,20 @@
 import SectionHeadding from "@/components/sectionHeadding";
 import ProductCard from "@/components/productCard";
 import { ProductSum } from "@/types/products";
+import { useTranslations } from "next-intl";
 
 interface Props {
   products: ProductSum[];
 }
 
 export default function FeaturedProducts({ products }: Props) {
+  const t = useTranslations("Pages.Home.FeaturedShoes");
+
   return (
     <section className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
       <SectionHeadding
-        headding="Featured Shoes"
-        subheadding="Checkout The Featured Shoes"
+        headding={t("headding")}
+        subheadding={t("subheadding")}
       />
 
       {/* Content */}

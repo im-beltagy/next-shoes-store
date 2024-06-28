@@ -1,26 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/layout/header";
-import { LocalizationProvider } from "@/utils/localization/localization-provider";
 
 export const metadata: Metadata = {
-  title: "Shoes Store",
-  description: "Shoes Store using Next14, TypeScript and Tailwind",
+  title: "Shoes Store App",
+  description:
+    "Multi language E-commerce App using Next.js, TypeScript, TailwindCSS and Next-Intl",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>
-        <LocalizationProvider>
-          <Header />
-          {children}
-        </LocalizationProvider>
-      </body>
-    </html>
-  );
+  return children;
 }

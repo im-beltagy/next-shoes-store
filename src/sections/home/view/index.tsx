@@ -18,8 +18,8 @@ export default function HomeView({ featuredProducts, newestProducts }: Props) {
     <div>
       <Hero />
       <Features />
-      <FeaturedProducts products={featuredProducts} />
       <NewestProducts products={newestProducts} />
+      <FeaturedProducts products={featuredProducts} />
       <Testimonials />
       <GetInTouch />
     </div>

@@ -1,4 +1,5 @@
 import SectionHeadding from "@/components/sectionHeadding";
+import { useTranslations } from "next-intl";
 
 const quotesIcon = (
   <svg
@@ -36,24 +37,53 @@ const starIcon = (
 );
 
 interface CardPropsType {
-  feedback: string;
-  author: {
-    name: string;
-    location: string;
-  };
+  name: string;
   stars: number;
 }
 
+const TESTIMONIALS: CardPropsType[] = [
+  {
+    name: "johnDoe",
+    stars: 5,
+  },
+  {
+    name: "janeSmith",
+    stars: 4,
+  },
+];
+
+export default function Testimonials() {
+  const t = useTranslations("Pages.Home.Testimonials");
+
+  return (
+    <section className="bg-accent-main">
+      <div className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
+        <SectionHeadding headding={t("headding")} darkBG />
+
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          {TESTIMONIALS.map((item, index) => (
+            <Card {...item} key={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Card(props: CardPropsType) {
+  const t = useTranslations("Pages.Home.Testimonials");
+
   return (
     <div className="relative rounded-2xl border-2 border-white px-4 py-16 text-center text-white md:px-6 lg:px-12">
-      <p className="mx-auto text-balance lg:text-lg">{props.feedback}</p>
+      <p className="mx-auto text-balance lg:text-lg" dir="ltr">
+        {t(`${props.name}.feedback`)}
+      </p>
 
       {/* Author */}
       <div className="my-4 text-lg lg:text-xl">
-        <span className="font-special">{props.author.name}</span>
+        <span className="font-special">{t(`${props.name}.name`)}</span>
         {" - "}
-        <span className="font-semibold">{props.author.location}</span>
+        <span className="font-semibold">{t(`${props.name}.location`)}</span>
       </div>
 
       {/* Rating */}
@@ -78,36 +108,5 @@ function Card(props: CardPropsType) {
         {quotesIcon}
       </div>
     </div>
-  );
-}
-
-const cardsContents: CardPropsType[] = [
-  {
-    author: { name: "John Doe", location: "London" },
-    feedback:
-      "All base UI elements are made using Nested Symbols and shared styles that are logically connected. Gorgeous, high-quality video sharing on desktop, mobile, tablet. All base UI elements are made using Nested Symbols",
-    stars: 5,
-  },
-  {
-    author: { name: "Jane Smith", location: "New York" },
-    feedback:
-      "The user interface is intuitive and easy to navigate. The design is modern and visually appealing. The video quality is excellent on all devices. I highly recommend this platform.",
-    stars: 4,
-  },
-];
-
-export default function Testimonials() {
-  return (
-    <section className="bg-accent-main">
-      <div className="py-section-sm md:py-section-md container mx-auto max-w-screen-lg px-4">
-        <SectionHeadding headding="What Our Clients Say" darkBG />
-
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-          {cardsContents.map((item, index) => (
-            <Card {...item} key={index} />
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }

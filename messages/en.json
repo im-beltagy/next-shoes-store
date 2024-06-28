@@ -1,0 +1,54 @@
+{
+  "Pages": {
+    "Home": {
+      "Hero": {
+        "headline": "Lace Up for Something Different. ✨",
+        "subline": "Unleash your individuality with our one-of-a-kind &quot;shoe creations&quot",
+        "cta": "Buy Now",
+        "SubText": {
+          "line1": "5,000 people like you have",
+          "line2": "purchased this product!"
+        }
+      },
+      "Features": {
+        "Feature1": {
+          "title": "Free Shipping",
+          "text": "All base UI elements are made using Nested Symbols and shared styles that are logically connected with one another."
+        },
+        "Feature2": {
+          "title": "Secure Payment",
+          "text": "All base UI elements are made using Nested Symbols and shared styles that are logically connected with one another."
+        },
+        "Feature3": {
+          "title": "24/7 Support",
+          "text": "All base UI elements are made using Nested Symbols and shared styles that are logically connected with one another."
+        }
+      },
+      "NewestShoes": {
+        "headding": "Newest Shoes",
+        "subheadding": "Checkout The Latest Shoes"
+      },
+      "FeaturedShoes": {
+        "headding": "Featured Shoes",
+        "subheadding": "Checkout The Featured Products"
+      },
+      "Testimonials": {
+        "headding": "What Our Clients Say",
+        "johnDoe": {
+          "name": "John Doe",
+          "location": "London",
+          "feedback": "All base UI elements are made using Nested Symbols and shared styles that are logically connected. Gorgeous, high-quality video sharing on desktop, mobile, tablet. All base UI elements are made using Nested Symbols"
+        },
+        "janeSmith": {
+          "name": "Jane Smith",
+          "location": "New York",
+          "feedback": "The user interface is intuitive and easy to navigate. The design is modern and visually appealing. The video quality is excellent on all devices. I highly recommend this platform."
+        }
+      },
+      "GetInTouch": {
+        "headline": "Long headline to turn your visitors into users",
+        "action": "Go Shop"
+      }
+    }
+  }
+}
