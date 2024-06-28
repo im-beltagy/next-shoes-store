@@ -1,25 +1,27 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
 function Text() {
+  const t = useTranslations("Pages.Home.Hero");
+
   return (
-    <div className="py-section-md md:py-section-md relative z-10 col-span-7 grid gap-4 max-md:justify-center">
+    <div className="relative z-10 col-span-7 grid gap-4 py-section-md max-md:justify-center md:py-section-md">
       <h1 className="font-special text-3xl text-primary max-md:text-balance max-md:text-center md:text-4xl lg:text-5xl">
-        Lace Up for Something Different. ✨
+        {t("headline")}
       </h1>
       <p className="max-md:text-balance max-md:text-center md:text-lg lg:text-xl">
-        Unleash your individuality with our one-of-a-kind &quot;shoe
-        creations&quot;
+        {t("subline")}
       </p>
 
       {/* Call For Action */}
       <div className="flex flex-wrap items-center gap-2 max-md:justify-center">
         <Link href="#" className="btn-primary shrink-0">
-          Buy Now
+          {t("cta")}
         </Link>
         <p className="text-sm text-accent-main">
-          5,000 people like you have
-          <br /> purchased this product!
+          {t("SubText.line1")}
+          <br /> {t("SubText.line2")}
         </p>
       </div>
     </div>
@@ -33,7 +35,7 @@ export default function Hero() {
         <Text />
 
         {/* Image */}
-        <div className="md:pt-section-md bottom-0 left-0 col-span-5 w-full max-md:absolute max-md:h-full">
+        <div className="bottom-0 left-0 col-span-5 w-full max-md:absolute max-md:h-full md:pt-section-md">
           <Image
             className="mx-auto"
             src="/assets/hero.webp"

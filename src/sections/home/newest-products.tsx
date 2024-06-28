@@ -3,18 +3,21 @@
 import SectionHeadding from "@/components/sectionHeadding";
 import ProductCard from "@/components/productCard";
 import { ProductSum } from "@/types/products";
+import { useTranslations } from "next-intl";
 
 interface Props {
   products: ProductSum[];
 }
 
 export default function NewestProducts({ products }: Props) {
+  const t = useTranslations("Pages.Home.NewestShoes");
+
   return (
     <section className="bg-accent-main">
-      <div className="py-section-sm md:py-section-md container mx-auto max-w-screen-lg px-4">
+      <div className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
         <SectionHeadding
-          headding="Newest Shoes"
-          subheadding="Checkout The Latest Shoes"
+          headding={t("headding")}
+          subheadding={t("subheadding")}
           darkBG
         />
 

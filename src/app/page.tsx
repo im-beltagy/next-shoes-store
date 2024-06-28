@@ -1,17 +1,6 @@
-import {
-  fetchFeaturedProducts,
-  fetchNewestProducts,
-} from "@/actions/products-actions";
-import HomeView from "@/sections/home/view";
+import { defaultLocale } from "@/config-locale";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const newestProducts = await fetchNewestProducts();
-  const featuredProducts = await fetchFeaturedProducts();
-
-  return (
-    <HomeView
-      featuredProducts={featuredProducts || []}
-      newestProducts={newestProducts || []}
-    />
-  );
+  redirect(`/${defaultLocale}`);
 }

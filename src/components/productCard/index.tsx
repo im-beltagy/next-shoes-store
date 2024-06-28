@@ -79,7 +79,7 @@ const ProductCard = (productSum: ProductSum) => {
           .map((item, index) => (
             <div
               className={`w-5 text-orange-500 ${index >= productSum.rating ? "opacity-60" : ""}`}
-              key={item}
+              key={index}
             >
               {starIcon}
             </div>

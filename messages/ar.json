@@ -1,0 +1,54 @@
+{
+  "Pages": {
+    "Home": {
+      "Hero": {
+        "headline": "اربط حذائك لتحصل على شيء مختلف. ✨",
+        "subline": "افتح لنفسك الفرصة للتميز مع إبداعاتنا الفريدة من نوعها للأحذية",
+        "cta": "اشترِ الآن",
+        "SubText": {
+          "line1": "5,000 شخصًا مثلك",
+          "line2": "قاموا بشرائهذا المنتج!"
+        }
+      },
+      "Features": {
+        "Feature1": {
+          "title": "الشحن المجاني",
+          "text": "تم إنشاء جميع عناصر واجهة المستخدم الأساسية باستخدام الرموز المتداخلة والأنماط المشتركة التي ترتبط بشكل منطقي ببعضها البعض."
+        },
+        "Feature2": {
+          "title": "الدفع الآمن",
+          "text": "تم إنشاء جميع عناصر واجهة المستخدم الأساسية باستخدام الرموز المتداخلة والأنماط المشتركة التي ترتبط بشكل منطقي ببعضها البعض."
+        },
+        "Feature3": {
+          "title": "الدعم على مدار الساعة",
+          "text": "تم إنشاء جميع عناصر واجهة المستخدم الأساسية باستخدام الرموز المتداخلة والأنماط المشتركة التي ترتبط بشكل منطقي ببعضها البعض."
+        }
+      },
+      "NewestShoes": {
+        "headding": "أحدث الأحذية",
+        "subheadding": "تحقق من أحدث الأحذية"
+      },
+      "FeaturedShoes": {
+        "headding": "الأحذية المميزة",
+        "subheadding": "تحقق من المنتجات المميزة"
+      },
+      "Testimonials": {
+        "headding": "آراء عملائنا",
+        "johnDoe": {
+          "name": "جون دو",
+          "location": "لندن",
+          "feedback": "All base UI elements are made using Nested Symbols and shared styles that are logically connected. Gorgeous, high-quality video sharing on desktop, mobile, tablet. All base UI elements are made using Nested Symbols"
+        },
+        "janeSmith": {
+          "name": "جين سميث",
+          "location": "نيويورك",
+          "feedback": "The user interface is intuitive and easy to navigate. The design is modern and visually appealing. The video quality is excellent on all devices. I highly recommend this platform."
+        }
+      },
+      "GetInTouch": {
+        "headline": "عنوان طويل لتحويل زوارك إلى مستخدمين",
+        "action": "تسوق الآن"
+      }
+    }
+  }
+}
