@@ -1,11 +1,12 @@
 "use client";
 
 import { locales, localesSettings } from "@/config-locale";
-import { Locales } from "@/types/locales";
+import { Locales } from "@/types/settings";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { Icon } from "@iconify/react";
+import { ThemeToggler } from "@/components/theme-toggler";
 
 const actions = [
   {
@@ -112,6 +113,7 @@ export default function Actions({ locale }: { locale: Locales }) {
           </button>
         </li>
       ))}
+      <ThemeToggler />
       {/* Actions */}
       {actions.map((item) => (
         <li

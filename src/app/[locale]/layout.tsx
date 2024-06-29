@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { redirect } from "next/navigation";
 import { Cairo, Kavoon, Lalezar, Leckerli_One } from "next/font/google";
-import { Locales } from "@/types/locales";
+import { Locales } from "@/types/settings";
 import Header from "@/layout/header";
 
 // Base Font
@@ -13,13 +13,14 @@ const cairo = Cairo({
   variable: "--base-font",
   display: "swap",
 });
-// Special Font
+// Special Font (English)
 const leckerliOne = Leckerli_One({
   subsets: ["latin"],
   weight: "400",
   variable: "--special-font",
   display: "swap",
 });
+// Special Font (Arabic)
 const lelazar = Lalezar({
   subsets: ["latin"],
   weight: "400",
@@ -48,7 +49,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={localesSettings[locale].dir || "ltr"}>
       <body
-        className={`${cairo.variable} ${(locale === "ar" ? lelazar : leckerliOne).variable} ${kavoon.variable} font-base`}
+        className={`${cairo.variable} ${(locale === "ar" ? lelazar : leckerliOne).variable} ${kavoon.variable} bg-default font-base`}
       >
         <NextIntlClientProvider messages={messages}>
           <Header locale={locale} />

@@ -1,5 +1,4 @@
-import { ValueOf } from "next/dist/shared/lib/constants";
-import { Locales, localeSettings } from "./types/locales";
+import { Locales, localeSettings } from "./types/settings";
 
 export const locales: Locales[] = ["en", "ar"];
 export const defaultLocale: Locales = "en";
