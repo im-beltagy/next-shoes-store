@@ -1,27 +1,7 @@
+import { Iconify } from "@/components/iconify";
+import { Rating } from "@/components/rating";
 import SectionHeadding from "@/components/section-headding";
 import { useTranslations } from "next-intl";
-
-const quotesIcon = (
-  <svg
-    className="w-full"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 512 512"
-    fill="currentColor"
-  >
-    <g>
-      <path
-        d="M119.472,66.59C53.489,66.59,0,120.094,0,186.1c0,65.983,53.489,119.487,119.472,119.487
- c0,0-0.578,44.392-36.642,108.284c-4.006,12.802,3.135,26.435,15.945,30.418c9.089,2.859,18.653,0.08,24.829-6.389
- c82.925-90.7,115.385-197.448,115.385-251.8C238.989,120.094,185.501,66.59,119.472,66.59z"
-      />
-      <path
-        d="M392.482,66.59c-65.983,0-119.472,53.505-119.472,119.51c0,65.983,53.489,119.487,119.472,119.487
- c0,0-0.578,44.392-36.642,108.284c-4.006,12.802,3.136,26.435,15.945,30.418c9.089,2.859,18.653,0.08,24.828-6.389
- C479.539,347.2,512,240.452,512,186.1C512,120.094,458.511,66.59,392.482,66.59z"
-      />
-    </g>
-  </svg>
-);
 
 const starIcon = (
   <svg
@@ -56,7 +36,7 @@ export default function Testimonials() {
   const t = useTranslations("Pages.Home.Testimonials");
 
   return (
-    <section className="bg-accent-main">
+    <section className="bg-second">
       <div className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
         <SectionHeadding headding={t("headding")} darkBG />
 
@@ -87,25 +67,16 @@ function Card(props: CardPropsType) {
       </div>
 
       {/* Rating */}
-      <div className="mx-auto flex w-fit gap-2">
-        {[1, 2, 3, 4, 5].map((item) => (
-          <div
-            className={`w-5 text-orange-500 ${props.stars < item ? "opacity-60" : ""}`}
-            key={item}
-          >
-            {starIcon}
-          </div>
-        ))}
-      </div>
+      <Rating stars={props.stars} />
 
       {/* Quotes Icons */}
       {/* Top Icon */}
-      <div className="absolute bottom-full right-full w-20 translate-x-[85%] translate-y-[75%] rotate-180 bg-accent-main p-2 text-white">
-        {quotesIcon}
+      <div className="bg-second absolute bottom-full right-full w-20 translate-x-[85%] translate-y-[75%] -scale-x-100 p-2 text-white">
+        <Iconify icon="streamline:quotation-2-solid" width="100%" />
       </div>
       {/* Bottom Icon */}
-      <div className="absolute left-full top-full w-20 translate-x-[-85%] translate-y-[-75%] bg-accent-main p-2 text-white">
-        {quotesIcon}
+      <div className="bg-second absolute left-full top-full w-20 translate-x-[-85%] translate-y-[-75%] -scale-x-100 p-2 text-white">
+        <Iconify icon="streamline:quotation-2-solid" width="100%" />
       </div>
     </div>
   );

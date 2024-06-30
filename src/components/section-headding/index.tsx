@@ -9,7 +9,7 @@ const SectionHeadding = (props: PropsType) => {
     <div className="px-2 pb-6 text-center md:pb-20">
       {props.subheadding ? (
         <span
-          className={`block text-sm lg:text-lg ${props.darkBG ? "text-gray-200" : ""}`}
+          className={`block text-sm dark:text-gray-200 lg:text-lg ${props.darkBG ? "text-gray-200" : ""}`}
         >
           {props.subheadding}
         </span>
@@ -21,7 +21,7 @@ const SectionHeadding = (props: PropsType) => {
         {props.headding}
       </h2>
       <div
-        className={`mx-auto h-1 w-40 max-w-[80%] rounded-full ${props.darkBG ? "bg-white" : "bg-accent-main"}`}
+        className={`mx-auto h-1 w-40 max-w-[80%] rounded-full dark:bg-white ${props.darkBG ? "bg-white" : "bg-accent-main"}`}
       ></div>
     </div>
   );

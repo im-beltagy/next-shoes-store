@@ -34,7 +34,7 @@ const ProductCard = (productSum: ProductSum) => {
           {/* Price */}
           {productSum.price.sale ? (
             <>
-              <del className="inline-block text-sm font-light">
+              <del className="text-primary-dark inline-block text-sm font-light">
                 {productSum.price.original}
               </del>{" "}
               <span className="inline-block font-semibold text-green-600">
@@ -42,7 +42,7 @@ const ProductCard = (productSum: ProductSum) => {
               </span>
             </>
           ) : (
-            <span className="inline-block font-semibold text-primary">
+            <span className="text-primary-dark inline-block font-semibold">
               {productSum.price.original}
             </span>
           )}

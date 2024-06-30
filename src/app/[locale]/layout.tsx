@@ -4,7 +4,7 @@ import { getMessages } from "next-intl/server";
 import { redirect } from "next/navigation";
 import { Cairo, Kavoon, Lalezar, Leckerli_One } from "next/font/google";
 import { Locales } from "@/types/settings";
-import Header from "@/layout/header";
+import Header from "@/layout/header/view";
 
 // Base Font
 const cairo = Cairo({

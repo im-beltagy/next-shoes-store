@@ -16,7 +16,7 @@ const sendIcon = (
 );
 
 const Brand = () => (
-  <Link href="/" className="font-brand block text-3xl text-primary">
+  <Link href="/" className="font-brand text-primary block text-3xl">
     ShoesStore
   </Link>
 );
@@ -67,7 +67,7 @@ function Email() {
           />
           <button
             type="button"
-            className="my-2 block w-8 p-1 hover:text-primary active:text-natural"
+            className="hover:text-primary active:text-natural my-2 block w-8 p-1"
           >
             {sendIcon}
           </button>
@@ -82,7 +82,7 @@ function Email() {
 
 export default function Footer() {
   return (
-    <footer className="py-section-sm mx-auto px-4 lg:container">
+    <footer className="mx-auto px-4 py-section-sm lg:container">
       <div className="flex gap-8 max-lg:flex-col md:max-lg:items-center lg:justify-between lg:gap-16">
         <Brand />
         <Nav />

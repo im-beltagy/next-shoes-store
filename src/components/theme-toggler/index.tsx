@@ -5,6 +5,7 @@ import {
   setLocalStorageItem,
 } from "@/utils/local-storage/use-local-storage";
 import { useEffect, useState } from "react";
+import { Iconify } from "../iconify";
 
 type Theme = "light" | "dark";
 
@@ -33,7 +34,9 @@ export function ThemeToggler() {
       className="icon-btn"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      {theme === "light" ? "🌙" : "☀️"}
+      <Iconify
+        icon={theme === "light" ? "bi:moon-stars-fill" : "ph:sun-dim-fill"}
+      />
     </button>
   );
 }

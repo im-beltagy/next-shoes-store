@@ -2,32 +2,6 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
-function Text() {
-  const t = useTranslations("Pages.Home.Hero");
-
-  return (
-    <div className="relative z-10 col-span-7 grid gap-4 py-section-md max-md:justify-center md:py-section-md">
-      <h1 className="font-special text-3xl text-primary max-md:text-balance max-md:text-center md:text-4xl lg:text-5xl">
-        {t("headline")}
-      </h1>
-      <p className="max-md:text-balance max-md:text-center md:text-lg lg:text-xl">
-        {t("subline")}
-      </p>
-
-      {/* Call For Action */}
-      <div className="flex flex-wrap items-center gap-2 max-md:justify-center">
-        <Link href="#" className="btn-primary shrink-0">
-          {t("cta")}
-        </Link>
-        <p className="text-sm text-accent-main">
-          {t("SubText.line1")}
-          <br /> {t("SubText.line2")}
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export default function Hero() {
   return (
     <main className="bg-beige-dark">
@@ -48,5 +22,31 @@ export default function Hero() {
         </div>
       </div>
     </main>
+  );
+}
+
+function Text() {
+  const t = useTranslations("Pages.Home.Hero");
+
+  return (
+    <div className="relative z-10 col-span-7 grid gap-4 py-section-md max-md:justify-center md:py-section-md">
+      <h1 className="text-primary-dark font-special text-3xl max-md:text-balance max-md:text-center md:text-4xl lg:text-5xl">
+        {t("headline")}
+      </h1>
+      <p className="text-primary-main max-md:text-balance max-md:text-center md:text-lg lg:text-xl">
+        {t("subline")}
+      </p>
+
+      {/* Call For Action */}
+      <div className="flex flex-wrap items-center gap-2 max-md:justify-center">
+        <Link href="#" className="btn-primary shrink-0">
+          {t("cta")}
+        </Link>
+        <p className="text-sm text-accent-main">
+          {t("SubText.line1")}
+          <br /> {t("SubText.line2")}
+        </p>
+      </div>
+    </div>
   );
 }

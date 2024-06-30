@@ -8,15 +8,18 @@
     @apply bg-white dark:bg-gray-900;
   }
   .bg-second {
-    @apply bg-gray-50 dark:bg-gray-800;
+    @apply bg-accent-main dark:bg-gray-800;
   }
 
   /* Theme Colors */
   .text-accent {
-    @apply text-purple-600 dark:text-purple-500;
+    @apply text-accent-main dark:text-accent-light;
   }
   .text-primary {
     @apply text-gray-900 dark:text-white;
+  }
+  .text-primary-dark {
+    @apply text-gray-900;
   }
   .text-natural {
     @apply text-gray-500 dark:text-gray-400;
@@ -25,12 +28,12 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-block rounded bg-accent-main px-8 py-3 text-center font-semibold text-white transition-colors hover:bg-accent-dark active:bg-accent-main;
+    @apply inline-block rounded bg-accent-main px-8 py-3 text-center font-semibold text-white transition-colors hover:bg-accent-dark focus:hover:bg-accent-dark active:bg-accent-main;
   }
   .btn-outlined {
     @apply inline-block rounded border-2 border-white px-8 py-3 text-center font-semibold text-white transition-colors hover:bg-[#0002] active:bg-[#0001];
   }
   .icon-btn {
-    @apply rounded-lg p-2 text-natural outline-none ring-gray-200 hover:bg-gray-100 focus:ring-2 dark:hover:bg-gray-800 dark:focus:ring-gray-600;
+    @apply text-natural inline-grid h-10 w-10 place-items-center rounded-lg p-2 outline-none ring-gray-200 hover:bg-gray-100 focus:ring-2 dark:hover:bg-gray-800 dark:focus:ring-gray-600;
   }
 }

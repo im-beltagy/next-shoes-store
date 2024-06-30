@@ -1,9 +1,16 @@
 {
+  "Navigation": {
+    "home": "home",
+    "shop": "shop",
+    "blog": "blog",
+    "FAQs": "FAQs",
+    "contact": "contact"
+  },
   "Pages": {
     "Home": {
       "Hero": {
         "headline": "Lace Up for Something Different. ✨",
-        "subline": "Unleash your individuality with our one-of-a-kind &quot;shoe creations&quot",
+        "subline": "Unleash your individuality with our one-of-a-kind \"shoe creations\"",
         "cta": "Buy Now",
         "SubText": {
           "line1": "5,000 people like you have",

@@ -19,10 +19,8 @@ const config: Config = {
       padding: { "section-sm": "2rem", "section-md": "6rem" },
       gap: { "section-sm": "2rem", "section-md": "6rem" },
       colors: {
-        accent: { main: "#4c66af", dark: "#35477B" },
-        primary: "#333333",
-        natural: "#474747",
-        divider: "#47474740",
+        accent: { light: "#6b8ef2", main: "#4c66af", dark: "#35477B" },
+        divider: { light: "#fff7", dark: "#47474740" },
         beige: { dark: "#dacece", light: "#f4f4f4" },
       },
     },

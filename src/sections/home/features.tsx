@@ -58,13 +58,13 @@ export default function Features() {
             key={item.name}
           >
             {/* Title */}
-            <div className="grid justify-center gap-4 text-accent-main transition-colors group-hover/card:text-white">
+            <div className="text-accent grid justify-center gap-4 transition-colors group-hover/card:text-white">
               <div className="mx-auto w-12">{item.icon}</div>
               <h3 className="cursor-default text-lg font-semibold md:text-xl lg:text-2xl">
                 {t(`${item.name}.title`)}
               </h3>
             </div>
-            <p className="max-w-100 mx-auto my-12 cursor-default text-center text-lg font-light leading-7 transition-colors group-hover/card:text-white">
+            <p className="max-w-100 mx-auto my-12 cursor-default text-center text-lg font-light leading-7 text-primary transition-colors group-hover/card:text-white">
               {t(`${item.name}.text`)}
             </p>
             <div className="mx-auto h-1.5 w-16 rounded-full bg-accent-main transition-colors group-hover/card:bg-white"></div>
