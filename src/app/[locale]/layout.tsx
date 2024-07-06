@@ -1,10 +1,10 @@
 import { defaultLocale, locales, localesSettings } from "@/config-locale";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { redirect } from "next/navigation";
+import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import { Cairo, Kavoon, Lalezar, Leckerli_One } from "next/font/google";
-import { Locales } from "@/types/settings";
-import Header from "@/layout/header/view";
+import { Locales } from "@/lib/types/settings";
+import Header from "@/view/layout/header/view";
+import "../globals.css";
 
 // Base Font
 const cairo = Cairo({
@@ -42,7 +42,7 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: Locales };
 }) {
-  if (!locales.includes(locale)) redirect(`/${defaultLocale}`);
+  unstable_setRequestLocale(locale);
 
   const messages = await getMessages();
 

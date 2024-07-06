@@ -1,10 +1,10 @@
 "use client";
 
-import { Locales } from "@/types/settings";
+import { Locales } from "@/lib/types/settings";
 import Link from "next/link";
-import { ThemeToggler } from "@/components/theme-toggler";
-import { LocaleButton } from "@/components/locale-button";
-import { Iconify } from "@/components/iconify";
+import { ThemeToggler } from "@/view/components/theme-toggler";
+import { LocaleButton } from "@/view/components/locale-button";
+import { Iconify } from "@/view/components/iconify";
 
 export default function Actions({
   locale,

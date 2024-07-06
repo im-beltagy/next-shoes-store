@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductSum } from "@/types/products";
+import { ProductSum } from "@/lib/types/products";
 import FeaturedProducts from "../featured-products";
 import Features from "../features";
 import GetInTouch from "../get-in-touch";

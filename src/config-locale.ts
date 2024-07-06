@@ -1,4 +1,4 @@
-import { Locales, localeSettings } from "./types/settings";
+import { Locales, localeSettings } from "./lib/types/settings";
 
 export const locales: Locales[] = ["ar", "en"];
 export const defaultLocale: Locales = "en";

@@ -1,6 +1,6 @@
-import { Iconify } from "@/components/iconify";
-import { Rating } from "@/components/rating";
-import SectionHeadding from "@/components/section-headding";
+import { Iconify } from "@/view/components/iconify";
+import { Rating } from "@/view/components/rating";
+import SectionHeadding from "@/view/components/section-headding";
 import { useTranslations } from "next-intl";
 
 const starIcon = (

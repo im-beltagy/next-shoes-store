@@ -24,7 +24,7 @@ const Brand = () => (
 function Nav() {
   return (
     <dl className="grid max-w-lg grow grid-cols-2 gap-8 md:grid-cols-3 lg:gap-20">
-      {navLinks.map((col) => (
+      {/* {navLinks.map((col) => (
         <div key={col.category}>
           <dt className="mb-2 text-nowrap font-bold uppercase">
             {col.category}
@@ -44,7 +44,7 @@ function Nav() {
             </ul>
           </dd>
         </div>
-      ))}
+      ))} */}
     </dl>
   );
 }

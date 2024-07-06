@@ -1,6 +1,6 @@
 "use client";
 
-import { Locales } from "@/types/settings";
+import { Locales } from "@/lib/types/settings";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { Iconify } from "../iconify";

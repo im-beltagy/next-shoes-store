@@ -1,8 +1,8 @@
 "use client";
 
-import SectionHeadding from "@/components/section-headding";
-import ProductCard from "@/components/product-card";
-import { ProductSum } from "@/types/products";
+import SectionHeadding from "@/view/components/section-headding";
+import ProductCard from "@/view/components/product-card";
+import { ProductSum } from "@/lib/types/products";
 import { useTranslations } from "next-intl";
 
 interface Props {

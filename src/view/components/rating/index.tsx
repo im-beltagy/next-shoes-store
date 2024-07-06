@@ -1,4 +1,4 @@
-import { cn } from "@/utils/style-functions/cn";
+import { cn } from "@/lib/utils/style-functions/cn";
 import { Iconify } from "../iconify";
 
 export function Rating({

@@ -1,4 +1,4 @@
-import { ProductSum } from "@/types/products";
+import { ProductSum } from "@/lib/types/products";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -65,10 +65,10 @@ const ProductCard = (productSum: ProductSum) => {
       </div>
 
       {/* Divider */}
-      <hr className="border-1 my-4 border-divider" />
+      <hr className="border-1 border-divider my-4" />
 
       {/* Text */}
-      <h4 className="pb-2 text-xl font-semibold text-primary lg:text-2xl">
+      <h4 className="text-primary pb-2 text-xl font-semibold lg:text-2xl">
         {productSum.name}
       </h4>
 

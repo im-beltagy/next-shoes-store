@@ -3,7 +3,7 @@
 import {
   getLocalStorageItem,
   setLocalStorageItem,
-} from "@/utils/local-storage/use-local-storage";
+} from "@/lib/utils/local-storage/use-local-storage";
 import { useEffect, useState } from "react";
 import { Iconify } from "../iconify";
 

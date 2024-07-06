@@ -1,6 +1,6 @@
 "use client";
 
-import { Locales } from "@/types/settings";
+import { Locales } from "@/lib/types/settings";
 import Actions from "../actions";
 import { Brand } from "../brand";
 import Nav from "../nav";
