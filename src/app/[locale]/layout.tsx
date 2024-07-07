@@ -1,10 +1,9 @@
-import { defaultLocale, locales, localesSettings } from "@/config-locale";
+import { locales, localesSettings } from "@/config-locale";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import { Cairo, Kavoon, Lalezar, Leckerli_One } from "next/font/google";
 import { Locales } from "@/lib/types/settings";
 import Header from "@/view/layout/header/view";
-import "../globals.css";
 
 // Base Font
 const cairo = Cairo({

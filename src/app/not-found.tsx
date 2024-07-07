@@ -6,8 +6,12 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="grid place-items-center text-xl">
-      404 | This page could not be found.
-    </main>
+    <html>
+      <body>
+        <main className="grid place-items-center text-xl">
+          404 | This page could not be found.
+        </main>
+      </body>
+    </html>
   );
 }
