@@ -51,7 +51,7 @@ export default async function LocaleLayout({
         className={`${cairo.variable} ${(locale === "ar" ? lelazar : leckerliOne).variable} ${kavoon.variable} bg-default font-base`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header locale={locale} />
+          <Header />
           {children}
         </NextIntlClientProvider>
       </body>

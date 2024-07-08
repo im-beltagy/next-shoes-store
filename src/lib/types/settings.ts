@@ -4,4 +4,5 @@ export interface localeSettings {
   name: string;
   dir: "ltr" | "rtl";
   icon: string;
+  currency: string;
 }

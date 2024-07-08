@@ -1,4 +1,10 @@
+"use client";
+
+import { defaultLocale } from "@/config-locale";
 import { ProductSum } from "@/lib/types/products";
+import { Locales } from "@/lib/types/settings";
+import { fCurrency } from "@/lib/utils/format-number";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,6 +22,9 @@ const starIcon = (
 );
 
 const ProductCard = (productSum: ProductSum) => {
+  const locale = useLocale();
+  const localeCode = (locale || defaultLocale) as Locales;
+
   return (
     <Link
       href={`/shop/${productSum.id}`}
@@ -26,7 +35,7 @@ const ProductCard = (productSum: ProductSum) => {
         <Image
           className="w-full transition-transform duration-300 group-hover/card:scale-110"
           src={productSum.img}
-          alt={`${productSum.name} preview image`}
+          alt={`${productSum[`name_${localeCode}`]} preview image`}
           width={512}
           height={512}
         />
@@ -35,15 +44,15 @@ const ProductCard = (productSum: ProductSum) => {
           {productSum.price.sale ? (
             <>
               <del className="text-primary-dark inline-block text-sm font-light">
-                {productSum.price.original}
+                {fCurrency(productSum.price.original)}
               </del>{" "}
               <span className="inline-block font-semibold text-green-600">
-                {productSum.price.sale}
+                {fCurrency(productSum.price.sale)}
               </span>
             </>
           ) : (
             <span className="text-primary-dark inline-block font-semibold">
-              {productSum.price.original}
+              {fCurrency(productSum.price.original)}
             </span>
           )}
 
@@ -69,7 +78,7 @@ const ProductCard = (productSum: ProductSum) => {
 
       {/* Text */}
       <h4 className="text-primary pb-2 text-xl font-semibold lg:text-2xl">
-        {productSum.name}
+        {productSum[`name_${localeCode}`]}
       </h4>
 
       {/* Rating */}
@@ -87,7 +96,7 @@ const ProductCard = (productSum: ProductSum) => {
       </div>
 
       {/* Sum */}
-      {productSum.description.map((item, i) => (
+      {productSum[`description_${localeCode}`]?.split("\n").map((item, i) => (
         <p className="pb-3 font-light tracking-wide" key={i}>
           {item}
         </p>

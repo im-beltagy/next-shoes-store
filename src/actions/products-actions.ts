@@ -5,9 +5,11 @@ function convertIntoProductSum(products: any[]) {
 
   return products.map((product) => ({
     id: product.id,
-    name: product.name,
+    name_ar: product.name_ar,
+    name_en: product.name_en,
     img: product.img,
-    description: product.description,
+    description_ar: product.description_ar,
+    description_en: product.description_en,
     price: product.price,
     rating: product.rating,
     inStock: product.inStock,

@@ -14,7 +14,7 @@ export function getLocalStorageItem(key: string) {
 
   if (!!isLocalStorageAvailable()) {
     const result = window.localStorage.getItem(key);
-    value = result ? JSON.parse(result) : undefined;
+    value = result ? result : undefined;
   }
 
   return value;
@@ -22,7 +22,7 @@ export function getLocalStorageItem(key: string) {
 
 export function setLocalStorageItem(key: string, value: any) {
   if (!!isLocalStorageAvailable()) {
-    window.localStorage.setItem(key, JSON.stringify(value));
+    window.localStorage.setItem(key, value);
   } else {
     console.warn("Local storage is not available");
   }

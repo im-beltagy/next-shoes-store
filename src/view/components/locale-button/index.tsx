@@ -4,12 +4,14 @@ import { Locales } from "@/lib/types/settings";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { Iconify } from "../iconify";
-import { localesSettings } from "@/config-locale";
+import { defaultLocale, localesSettings } from "@/config-locale";
 import { Popover } from "react-tiny-popover";
 import { List } from "../list";
-import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
-export function LocaleButton({ locale }: { locale: Locales }) {
+export function LocaleButton() {
+  const locale = useLocale();
+
   const pathname = usePathname();
   const router = useRouter();
 
@@ -44,7 +46,9 @@ export function LocaleButton({ locale }: { locale: Locales }) {
         className="icon-btn"
         onClick={() => setIsPopoverOpen((prev) => !prev)}
       >
-        <Iconify icon={localesSettings[locale].icon} />
+        <Iconify
+          icon={localesSettings[(locale as Locales) || defaultLocale].icon}
+        />
       </button>
     </Popover>
   );

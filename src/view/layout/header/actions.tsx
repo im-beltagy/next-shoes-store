@@ -1,16 +1,13 @@
 "use client";
 
-import { Locales } from "@/lib/types/settings";
 import Link from "next/link";
 import { ThemeToggler } from "@/view/components/theme-toggler";
 import { LocaleButton } from "@/view/components/locale-button";
 import { Iconify } from "@/view/components/iconify";
 
 export default function Actions({
-  locale,
   setIsMenuOpen,
 }: {
-  locale: Locales;
   setIsMenuOpen: (state: any) => void;
 }) {
   return (
@@ -22,7 +19,7 @@ export default function Actions({
         <Iconify icon="vaadin:menu" />
       </button>
 
-      <LocaleButton locale={locale} />
+      <LocaleButton />
 
       <ThemeToggler />
 
