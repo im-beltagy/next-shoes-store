@@ -77,7 +77,7 @@ const ProductCard = (productSum: ProductSum) => {
       <hr className="border-1 border-divider my-4" />
 
       {/* Text */}
-      <h4 className="text-primary pb-2 text-xl font-semibold lg:text-2xl">
+      <h4 className="text-primary-dark pb-2 text-xl font-semibold lg:text-2xl">
         {productSum[`name_${localeCode}`]}
       </h4>
 

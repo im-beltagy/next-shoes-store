@@ -37,7 +37,7 @@ export default function Testimonials() {
 
   return (
     <section className="bg-second">
-      <div className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
+      <div className="main-container px-4 py-section-sm md:py-section-md">
         <SectionHeadding headding={t("headding")} darkBG />
 
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">

@@ -14,7 +14,7 @@ export default function NewestProducts({ products }: Props) {
 
   return (
     <section className="bg-second">
-      <div className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
+      <div className="main-container px-4 py-section-sm md:py-section-md">
         <SectionHeadding
           headding={t("headding")}
           subheadding={t("subheadding")}

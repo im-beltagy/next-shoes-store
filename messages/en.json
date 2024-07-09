@@ -1,7 +1,10 @@
 {
+  "Global": {
+    "load-more": "Load More"
+  },
   "Navigation": {
     "home": "home",
-    "shop": "shop",
+    "store": "store",
     "blog": "blog",
     "FAQs": "FAQs",
     "contact": "contact"
@@ -56,6 +59,10 @@
         "headline": "Long headline to turn your visitors into users",
         "action": "Go Shop"
       }
+    },
+    "Store": {
+      "headding": "Browse Store",
+      "subheadding": "All you need in one place"
     }
   }
 }

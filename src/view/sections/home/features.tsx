@@ -50,11 +50,11 @@ export default function Features() {
   const t = useTranslations("Pages.Home.Features");
 
   return (
-    <section className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
+    <section className="main-container px-4 py-section-sm md:py-section-md">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {cards.map((item) => (
           <div
-            className="group/card rounded px-8 py-section-sm ring-1 ring-divider transition-colors hover:bg-accent-main lg:py-section-md"
+            className="group/card ring-divider rounded px-8 py-section-sm ring-1 transition-colors hover:bg-accent-main lg:py-section-md"
             key={item.name}
           >
             {/* Title */}
@@ -64,7 +64,7 @@ export default function Features() {
                 {t(`${item.name}.title`)}
               </h3>
             </div>
-            <p className="max-w-100 mx-auto my-12 cursor-default text-center text-lg font-light leading-7 text-primary transition-colors group-hover/card:text-white">
+            <p className="max-w-100 text-primary mx-auto my-12 cursor-default text-center text-lg font-light leading-7 transition-colors group-hover/card:text-white">
               {t(`${item.name}.text`)}
             </p>
             <div className="mx-auto h-1.5 w-16 rounded-full bg-accent-main transition-colors group-hover/card:bg-white"></div>

@@ -1,4 +1,7 @@
+"use server";
+
 import { products } from "@/__mock/__products";
+import { PRODUCTS_LIMIT } from "@/lib/config";
 
 function convertIntoProductSum(products: any[]) {
   if (typeof products !== "object") return [];
@@ -31,6 +34,23 @@ export async function fetchFeaturedProducts() {
   try {
     const res = await {
       data: convertIntoProductSum([products[11], products[42], products[14]]),
+    };
+    return res?.data;
+  } catch (error) {
+    throw new Error("Failed to fetch products");
+  }
+}
+
+export async function fetchProducts({
+  offset = 0,
+  limit = PRODUCTS_LIMIT,
+}: {
+  offset?: number;
+  limit?: number;
+}) {
+  try {
+    const res = await {
+      data: convertIntoProductSum(products.slice(offset, offset + limit)),
     };
     return res?.data;
   } catch (error) {

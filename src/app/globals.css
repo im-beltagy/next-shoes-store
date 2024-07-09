@@ -36,4 +36,7 @@
   .icon-btn {
     @apply text-natural inline-grid h-10 w-10 place-items-center rounded-lg p-2 outline-none ring-gray-200 hover:bg-gray-100 focus:ring-2 dark:hover:bg-gray-800 dark:focus:ring-gray-600;
   }
+  .main-container {
+    @apply container mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl;
+  }
 }

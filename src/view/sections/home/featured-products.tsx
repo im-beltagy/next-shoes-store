@@ -11,7 +11,7 @@ export default function FeaturedProducts({ products }: Props) {
   const t = useTranslations("Pages.Home.FeaturedShoes");
 
   return (
-    <section className="container mx-auto max-w-screen-lg px-4 py-section-sm md:py-section-md">
+    <section className="main-container px-4 py-section-sm md:py-section-md">
       <SectionHeadding
         headding={t("headding")}
         subheadding={t("subheadding")}

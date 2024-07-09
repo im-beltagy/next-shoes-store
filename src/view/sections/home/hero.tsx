@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <main className="bg-beige-dark">
-      <div className="container relative mx-auto max-w-screen-lg grid-cols-12 items-end gap-4 overflow-hidden px-4 md:grid">
+      <div className="main-container relative grid-cols-12 items-end gap-4 overflow-hidden md:grid">
         <Text />
 
         {/* Image */}
