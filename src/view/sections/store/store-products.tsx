@@ -2,18 +2,17 @@
 
 import { fetchProducts } from "@/actions/products-actions";
 import { PRODUCTS_LIMIT } from "@/lib/config";
-import { ProductSum } from "@/lib/types/products";
-import ProductCard from "@/view/components/product-card";
+import { Product } from "@/lib/types/products";
+import { ProductCard } from "@/view/components/product-card";
 import SectionHeadding from "@/view/components/section-headding";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
 
 export function StoreProducts({
   products: initProducts,
-}: {
-  products: ProductSum[];
-}) {
+}: Readonly<{
+  products: Product[];
+}>) {
   const t = useTranslations("Pages.Store");
 
   const [products, setProducts] = useState(initProducts);
@@ -56,7 +55,7 @@ export function StoreProducts({
   );
 }
 
-function LoadMoreButton({ onClick }: { onClick: () => void }) {
+function LoadMoreButton({ onClick }: Readonly<{ onClick: () => void }>) {
   const t = useTranslations("Global");
 
   return (

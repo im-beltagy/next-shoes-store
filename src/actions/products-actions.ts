@@ -50,7 +50,7 @@ export async function fetchProducts({
 }) {
   try {
     const res = await {
-      data: convertIntoProductSum(products.slice(offset, offset + limit)),
+      data: products.slice(offset, offset + limit),
     };
     return res?.data;
   } catch (error) {

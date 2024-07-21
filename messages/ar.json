@@ -1,6 +1,30 @@
 {
   "Global": {
-    "load-more": "تحميل المزيد"
+    "load-more": "تحميل المزيد",
+    "Available": "متوفر",
+    "Only": "فقط"
+  },
+  "Product": {
+    "Categories": {
+      "FORMAL_SHOES": "الأحذية الرسمية",
+      "MENS_SHOES": "أحذية الرجال",
+      "SNEAKERS": "حذاء رياضي",
+      "WOMENS_SHOES": "أحذية نسائية",
+      "LOAFERS": "حذاء لوفر",
+      "HEELS": "كعب عالي",
+      "ATHLETIC_SHOES": "أحذية رياضية",
+      "BOOTS": "أحذية بنات",
+      "FLATS": "شبشب",
+      "CASUAL_SHOES": "أحذية كاجوال",
+      "SANDALS": "صنادل",
+      "WEDGES": "أحذية مسطحة",
+      "SLIDES": "ويدج",
+      "MULES": "شرائح",
+      "SLIPPERS": "صنادل بكعب",
+      "WOMENS_ACCESSORIES": "شباشب",
+      "MENS_ACCESSORIES": "إكسسوارات نسائية",
+      "KIDS_ACCESSORIES": "إكسسوارات رجالية"
+    }
   },
   "Navigation": {
     "home": "الرئيسية",

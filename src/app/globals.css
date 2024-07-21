@@ -10,13 +10,15 @@
   .bg-second {
     @apply bg-accent-main dark:bg-gray-800;
   }
-
+  .bg-card {
+    @apply bg-white dark:bg-zinc-400;
+  }
   /* Theme Colors */
   .text-accent {
     @apply text-accent-main dark:text-accent-light;
   }
   .text-primary {
-    @apply text-gray-900 dark:text-white;
+    @apply text-gray-900 dark:text-blue-50;
   }
   .text-primary-dark {
     @apply text-gray-900;

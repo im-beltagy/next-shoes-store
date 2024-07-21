@@ -1,7 +1,7 @@
 "use client";
 
 import SectionHeadding from "@/view/components/section-headding";
-import ProductCard from "@/view/components/product-card";
+import { ProductSumCard } from "@/view/components/product-card";
 import { ProductSum } from "@/lib/types/products";
 import { useTranslations } from "next-intl";
 
@@ -24,7 +24,7 @@ export default function NewestProducts({ products }: Props) {
         {/* Content */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {products.map((item) => {
-            return <ProductCard {...item} key={item.id} />;
+            return <ProductSumCard {...item} key={item.id} />;
           })}
         </div>
       </div>
