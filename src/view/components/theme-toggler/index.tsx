@@ -16,7 +16,7 @@ export function ThemeToggler() {
   useEffect(() => {
     const storagedTheme = getLocalStorageItem("theme");
     if (storagedTheme && storagedTheme !== theme) {
-      setTheme(storagedTheme);
+      setTheme(storagedTheme as Theme);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
