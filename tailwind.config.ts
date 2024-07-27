@@ -1,3 +1,4 @@
+import plugin from "tailwindcss/plugin";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -6,6 +7,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/view/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/lib/config.ts",
   ],
   theme: {
     extend: {
@@ -23,6 +25,12 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-dir")(),
+    plugin(function ({ addVariant }) {
+      addVariant("starting", "@starting-style");
+      addVariant("parent", "* > &");
+    }),
+  ],
 };
 export default config;

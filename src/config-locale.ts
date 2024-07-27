@@ -1,8 +1,6 @@
 import { Pathnames } from "next-intl/routing";
 import { Locales, localeSettings } from "./lib/types/settings";
 
-import Cookie from "js-cookie";
-
 export const locales: Locales[] = ["ar", "en"];
 export const defaultLocale: Locales = "en";
 

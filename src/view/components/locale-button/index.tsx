@@ -31,6 +31,7 @@ export function LocaleButton() {
       positions={["bottom", "left", "right"]} // preferred positions by priority
       onClickOutside={() => setIsPopoverOpen(false)}
       padding={15}
+      containerClassName="z-50"
       content={
         <List
           items={Object.values(localesSettings).map((item: any, i) => ({
