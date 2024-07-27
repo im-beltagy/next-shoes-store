@@ -1,9 +1,8 @@
 "use client";
 
 import { HEADER_HEIGHT } from "@/lib/config";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Iconify } from "../iconify";
-import clsx from "clsx";
 import { cn } from "@/lib/utils/style-functions/cn";
 
 interface Props {
@@ -42,30 +41,26 @@ export default function Sidebar({
     <div
       data-container="true"
       className={cn(
-        "transition-[opacity, display] fixed top-0 z-10 hidden h-full w-full bg-[#0000] duration-300",
-        "starting:bg-[#0000]",
-        open && "block bg-[#0003]",
+        "transition-[opacity, display] fixed top-0 z-10 hidden h-full w-full bg-[#0000] backdrop-blur-0 duration-300",
+        "starting:bg-[#0000] starting:backdrop-blur-0",
+        open && "block bg-[#0003] backdrop-blur-sm",
       )}
       style={{ transitionBehavior: "allow-discrete" }}
       onClick={onClickOutside}
     >
       <div
         className={cn(
-          "bg-card absolute top-0 flex h-full w-fit max-w-[90vw] flex-col shadow-xl transition-[transform_display] duration-300",
-          {
-            "end-0": position === "end",
-            "start-0": position === "start",
-          },
-          {
-            "starting:parent:ltr:translate-x-full starting:parent:rtl:-translate-x-full":
-              position === "end",
-            "starting:parent:ltr:-translate-x-full starting:parent:rtl:translate-x-full":
-              position === "start",
-          },
-          !open && {
-            "ltr:translate-x-full rtl:-translate-x-full": position === "end",
-            "ltr:-translate-x-full rtl:translate-x-full": position === "start",
-          },
+          "bg-card absolute top-0 flex h-full w-fit max-w-[90vw] flex-col shadow-xl transition-transform duration-300",
+          position === "end" && [
+            "end-0",
+            !open && "ltr:translate-x-full rtl:-translate-x-full",
+            "starting:parent:ltr:translate-x-full starting:parent:rtl:-translate-x-full",
+          ],
+          position === "start" && [
+            "start-0",
+            !open && "ltr:-translate-x-full rtl:translate-x-full",
+            "starting:parent:ltr:-translate-x-full starting:parent:rtl:translate-x-full",
+          ],
         )}
         style={{ minWidth: `min(${minWidth}, 90vw)` }}
       >
