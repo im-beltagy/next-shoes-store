@@ -6,6 +6,7 @@
   },
   "Product": {
     "Categories": {
+      "all": "All Categories",
       "FORMAL_SHOES": "Formal Shoes",
       "MENS_SHOES": "Mens Shoes",
       "SNEAKERS": "Sneakers",
@@ -24,6 +25,25 @@
       "WOMENS_ACCESSORIES": "Womens Accessories",
       "MENS_ACCESSORIES": "Mens Accessories",
       "KIDS_ACCESSORIES": "Kids Accessories"
+    },
+    "Colors": {
+      "all": "All Colors",
+      "BLACK": "Black",
+      "BROWN": "Brown",
+      "BLUE": "Blue",
+      "WHITE": "White",
+      "GREY": "Grey",
+      "PINK": "Pink",
+      "BEIGE": "Beige",
+      "RED": "Red",
+      "SILVER": "Silver",
+      "TAN": "Tan",
+      "NAVY": "Navy",
+      "PURPLE": "Purple",
+      "TAUPE": "Taupe",
+      "GREEN": "Green",
+      "CAMEL": "Camel",
+      "GOLD": "Gold"
     }
   },
   "Navigation": {

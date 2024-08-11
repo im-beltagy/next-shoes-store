@@ -13,7 +13,7 @@ interface Props {
 
 export function List({ items }: Props) {
   return (
-    <ul className="bg-default flex min-w-36 flex-col gap-1 rounded-md p-1 shadow-md ring-4 ring-gray-50 dark:ring-gray-700">
+    <ul className="bg-default flex max-h-48 min-w-36 flex-col gap-1 overflow-auto rounded-md p-1 shadow-md ring-4 ring-gray-50 dark:ring-gray-700">
       {items.map((item) => (
         <li key={item.text}>
           {"link" in item ? (

@@ -1,7 +1,7 @@
 "use client";
 
 import { defaultLocale, localesSettings } from "@/config-locale";
-import { Product, ProductSum } from "@/lib/types/products";
+import { Colors, Product, ProductSum } from "@/lib/types/products";
 import { Locales } from "@/lib/types/settings";
 import { fCurrency } from "@/lib/utils/format-number";
 import { useLocale, useTranslations } from "next-intl";
@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Rating } from "../rating";
 import { useMemo } from "react";
+import { COLORS } from "@/lib/config";
 
 export function ProductSumCard({
   children,
@@ -133,25 +134,6 @@ export function ProductSumCard({
   );
 }
 
-const Colors = {
-  BLACK: "#000000",
-  BROWN: "#A52A2A",
-  BLUE: "#0000FF",
-  WHITE: "#FFFFFF",
-  GREY: "#808080",
-  PINK: "#FFC0CB",
-  BEIGE: "#F5F5DC",
-  RED: "#FF0000",
-  SILVER: "#C0C0C0",
-  TAN: "#D2B48C",
-  NAVY: "#000080",
-  PURPLE: "#800080",
-  TAUPE: "#483C32",
-  GREEN: "#008000",
-  CAMEL: "#C19A6B",
-  GOLD: "#FFD700",
-};
-
 export function ProductCard(product: Product) {
   const t = useTranslations("Product.Categories");
   return (
@@ -161,13 +143,18 @@ export function ProductCard(product: Product) {
       </p>
       <div className="mb-2 flex">
         {product.colors.map((item) => (
-          <div
-            key={item}
-            className="-ms-1 mr-1 h-4 w-4 rounded-full border-2 border-slate-400 dark:border-zinc-300"
-            style={{ backgroundColor: Colors[item] }}
-          />
+          <ColorDot key={item} color={item} />
         ))}
       </div>
     </ProductSumCard>
+  );
+}
+
+export function ColorDot({ color }: { color: Colors }) {
+  return (
+    <div
+      className="-ms-1 mr-1 h-4 w-4 rounded-full border-2 border-slate-400 dark:border-zinc-300"
+      style={{ backgroundColor: COLORS[color] }}
+    />
   );
 }

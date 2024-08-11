@@ -6,6 +6,7 @@
   },
   "Product": {
     "Categories": {
+      "all": "جميع التصنيفات",
       "FORMAL_SHOES": "الأحذية الرسمية",
       "MENS_SHOES": "أحذية الرجال",
       "SNEAKERS": "حذاء رياضي",
@@ -24,6 +25,25 @@
       "WOMENS_ACCESSORIES": "شباشب",
       "MENS_ACCESSORIES": "إكسسوارات نسائية",
       "KIDS_ACCESSORIES": "إكسسوارات رجالية"
+    },
+    "Colors": {
+      "all": "جميع الألوان",
+      "BLACK": "أسود",
+      "BROWN": "بني",
+      "BLUE": "أزرق",
+      "WHITE": "أبيض",
+      "GREY": "رمادي",
+      "PINK": "وردي",
+      "BEIGE": "بيح",
+      "RED": "أحمر",
+      "SILVER": "فضي",
+      "TAN": "تان",
+      "NAVY": "نيفي",
+      "PURPLE": "بنفسجي",
+      "TAUPE": "تاو",
+      "GREEN": "أخضر",
+      "CAMEL": "جملي",
+      "GOLD": "ذهبي"
     }
   },
   "Navigation": {

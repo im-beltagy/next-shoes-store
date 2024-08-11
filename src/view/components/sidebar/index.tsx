@@ -50,7 +50,7 @@ export default function Sidebar({
     >
       <div
         className={cn(
-          "bg-card absolute top-0 flex h-full w-fit max-w-[90vw] flex-col shadow-xl transition-transform duration-300",
+          "bg-default absolute top-0 flex h-full w-fit max-w-[90vw] flex-col shadow-xl transition-transform duration-300",
           position === "end" && [
             "end-0",
             !open && "ltr:translate-x-full rtl:-translate-x-full",

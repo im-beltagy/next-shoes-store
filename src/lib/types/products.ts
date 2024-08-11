@@ -18,6 +18,27 @@ export type Categories =
   | "MENS_ACCESSORIES"
   | "KIDS_ACCESSORIES";
 
+export const all_categories: Categories[] = [
+  "FORMAL_SHOES",
+  "MENS_SHOES",
+  "SNEAKERS",
+  "WOMENS_SHOES",
+  "LOAFERS",
+  "HEELS",
+  "ATHLETIC_SHOES",
+  "BOOTS",
+  "FLATS",
+  "CASUAL_SHOES",
+  "SANDALS",
+  "WEDGES",
+  "SLIDES",
+  "MULES",
+  "SLIPPERS",
+  "WOMENS_ACCESSORIES",
+  "MENS_ACCESSORIES",
+  "KIDS_ACCESSORIES",
+];
+
 export type Colors =
   | "BLACK"
   | "BROWN"
@@ -35,6 +56,25 @@ export type Colors =
   | "GREEN"
   | "CAMEL"
   | "GOLD";
+
+export const all_colors: Colors[] = [
+  "BLACK",
+  "BROWN",
+  "BLUE",
+  "WHITE",
+  "GREY",
+  "PINK",
+  "BEIGE",
+  "RED",
+  "SILVER",
+  "TAN",
+  "NAVY",
+  "PURPLE",
+  "TAUPE",
+  "GREEN",
+  "CAMEL",
+  "GOLD",
+];
 
 export interface ProductSum {
   id: string;

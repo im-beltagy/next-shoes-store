@@ -7,6 +7,9 @@
   .bg-default {
     @apply bg-white dark:bg-gray-900;
   }
+  .bg-reverse {
+    @apply bg-gray-900 dark:bg-white;
+  }
   .bg-second {
     @apply bg-accent-main dark:bg-gray-800;
   }
@@ -19,6 +22,9 @@
   }
   .text-primary {
     @apply text-gray-900 dark:text-blue-50;
+  }
+  .text-reverse {
+    @apply text-blue-50 dark:text-gray-900;
   }
   .text-primary-dark {
     @apply text-gray-900;
