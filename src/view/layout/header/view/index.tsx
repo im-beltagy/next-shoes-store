@@ -10,7 +10,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-default fixed inset-x-0 z-50 shadow-lg">
+    <header className="bg-default fixed inset-x-0 z-50 shadow-lg dark:shadow-[#fff2]">
       <div className="relative mx-auto flex w-full items-center justify-between gap-4 p-4 lg:container">
         <Brand />
         <Nav isMenuOpen={isMenuOpen} />
