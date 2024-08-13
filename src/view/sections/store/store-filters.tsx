@@ -12,7 +12,7 @@ import { ColorDot } from "@/view/components/product-card";
 import Sidebar from "@/view/components/sidebar";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function StoreFilters() {
@@ -31,7 +31,9 @@ export default function StoreFilters() {
         <Iconify icon="iconoir:filter-solid" />
       </button>
       <Sidebar position="start" open={open} onClose={() => setOpen(false)}>
-        <FilterInputs />
+        <Suspense>
+          <FilterInputs />
+        </Suspense>
       </Sidebar>
     </>
   );

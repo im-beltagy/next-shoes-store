@@ -21,8 +21,8 @@ export const localesSettings: { [key in Locales]: localeSettings } = {
 
 export const pathnames: Pathnames<typeof locales> = {
   "/": "/",
-  "/profile": {
-    en: "/profile",
-    ar: "/profile",
+  "/store": {
+    en: "/store",
+    ar: "/store",
   },
 };
