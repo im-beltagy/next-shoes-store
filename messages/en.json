@@ -2,15 +2,17 @@
   "Global": {
     "load-more": "Load More",
     "Available": "Available",
-    "Only": "Only"
+    "Only": "Only",
+    "Search": "Search",
+    "Apply": "Apply"
   },
   "Product": {
     "Categories": {
       "all": "All Categories",
       "FORMAL_SHOES": "Formal Shoes",
-      "MENS_SHOES": "Mens Shoes",
+      "MENS_SHOES": "Men's Shoes",
       "SNEAKERS": "Sneakers",
-      "WOMENS_SHOES": "Womens Shoes",
+      "WOMENS_SHOES": "Women's Shoes",
       "LOAFERS": "Loafers",
       "HEELS": "Heels",
       "ATHLETIC_SHOES": "Athletic Shoes",
@@ -22,9 +24,9 @@
       "SLIDES": "Slides",
       "MULES": "Mules",
       "SLIPPERS": "Slippers",
-      "WOMENS_ACCESSORIES": "Womens Accessories",
-      "MENS_ACCESSORIES": "Mens Accessories",
-      "KIDS_ACCESSORIES": "Kids Accessories"
+      "WOMENS_ACCESSORIES": "Women's Accessories",
+      "MENS_ACCESSORIES": "Men's Accessories",
+      "KIDS_ACCESSORIES": "Kid's Accessories"
     },
     "Colors": {
       "all": "All Colors",

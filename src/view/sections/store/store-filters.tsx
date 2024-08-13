@@ -1,17 +1,18 @@
 "use client";
 
+import { MAX_PRICE, MIN_PRICE } from "@/lib/config";
 import { all_categories, all_colors, Colors } from "@/lib/types/products";
 import { cn } from "@/lib/utils/style-functions/cn";
 import { useQueryString } from "@/lib/utils/use-query-string";
 import MultiRangeSlider from "@/view/components/form-components/multi-range";
-import SearchField from "@/view/components/form-components/search";
-import SelectField from "@/view/components/form-components/select";
+import TextField from "@/view/components/form-components/text-field";
+import SelectField from "@/view/components/form-components/select-field";
 import { Iconify } from "@/view/components/iconify";
 import { ColorDot } from "@/view/components/product-card";
 import Sidebar from "@/view/components/sidebar";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function StoreFilters() {
@@ -36,53 +37,129 @@ export default function StoreFilters() {
   );
 }
 
+const INIT_VALUES = {
+  search: "",
+  price: {
+    min: MIN_PRICE,
+    max: MAX_PRICE,
+  },
+  color: "all",
+  category: "all",
+};
+
 function FilterInputs() {
   const { createQueryString } = useQueryString();
   const searchParams = useSearchParams();
   const t = useTranslations("Product");
+  const tGlobal = useTranslations("Global");
+
+  const defaultValues = useMemo(
+    () => ({
+      search: searchParams.get("search") || INIT_VALUES.search,
+      price: {
+        min: Number(searchParams.get("min_price")) || INIT_VALUES.price.min,
+        max: Number(searchParams.get("max_price")) || INIT_VALUES.price.max,
+      },
+      color: searchParams.get("color") || INIT_VALUES.color,
+      category: searchParams.get("category") || INIT_VALUES.category,
+    }),
+    [searchParams],
+  );
 
   const methods = useForm({
-    defaultValues: {
-      search: searchParams.get("search") || "",
-      price: {
-        min: Number(searchParams.get("min")) || 0,
-        max: Number(searchParams.get("max")) || 1000,
-      },
-      color: "all",
-      category: "all",
-    },
+    defaultValues,
   });
-  const { getValues } = methods;
+  const { handleSubmit, setValue } = methods;
+
+  // Handle Change SearchParams
+  useEffect(() => {
+    setValue("search", defaultValues.search);
+    setValue("price", defaultValues.price);
+    setValue("color", defaultValues.color);
+    setValue("category", defaultValues.category);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    defaultValues.category,
+    defaultValues.color,
+    defaultValues.price,
+    defaultValues.search,
+  ]);
+
+  const reset = useCallback(() => {
+    setValue("search", INIT_VALUES.search);
+    setValue("price", INIT_VALUES.price);
+    setValue("color", INIT_VALUES.color);
+    setValue("category", INIT_VALUES.category);
+  }, [setValue]);
+
+  const onSubmit = useCallback(
+    (data: any) => {
+      const { search, color, category, price } = data;
+
+      const queries: { name: string; value?: string }[] = [
+        { name: "search", value: search },
+        { name: "color", value: color !== "all" ? color : undefined },
+        { name: "category", value: category !== "all" ? category : undefined },
+        {
+          name: "min_price",
+          value: price.min !== MIN_PRICE ? price.min.toString() : undefined,
+        },
+        {
+          name: "max_price",
+          value: price.max !== MAX_PRICE ? price.max.toString() : undefined,
+        },
+      ];
+
+      createQueryString(queries);
+    },
+    [createQueryString],
+  );
 
   return (
-    <div className="grid gap-2">
-      <FormProvider {...methods}>
-        <SearchField
-          label={"Search"}
-          name="search"
-          onClick={() => {
-            createQueryString([{ name: "search", value: getValues("search") }]);
-          }}
-        />
-        <MultiRangeSlider name="price" min={0} max={1000} step={10} currency />
-        <SelectField
-          name="color"
-          options={["all", ...all_colors].map((item, i) => ({
-            name: item,
-            label: t(`Colors.${item}`),
-            icon: item !== "all" && (
-              <ColorDot key={item} color={item as Colors} />
-            ),
-          }))}
-        />
-        <SelectField
-          name="category"
-          options={["all", ...all_categories].map((item, i) => ({
-            name: item,
-            label: t(`Categories.${item}`),
-          }))}
-        />
-      </FormProvider>
-    </div>
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="grid gap-3">
+          <TextField label={tGlobal("Search")} name="search" />
+          <div className="pt-1">
+            <MultiRangeSlider
+              name="price"
+              min={0}
+              max={1000}
+              step={10}
+              currency
+            />
+          </div>
+          <SelectField
+            name="color"
+            options={["all", ...all_colors].map((item, i) => ({
+              name: item,
+              label: t(`Colors.${item}`),
+              icon: item !== "all" && (
+                <ColorDot key={item} color={item as Colors} />
+              ),
+            }))}
+          />
+          <SelectField
+            name="category"
+            options={["all", ...all_categories].map((item, i) => ({
+              name: item,
+              label: t(`Categories.${item}`),
+            }))}
+          />
+          <div className="flex items-stretch gap-1">
+            <button
+              className="icon-btn h-auto shrink-0 px-3"
+              type="submit"
+              onClick={() => reset()}
+            >
+              <Iconify icon="fluent-mdl2:reset" />
+            </button>
+            <button type="submit" className="btn-primary grow">
+              {tGlobal("Apply")}
+            </button>
+          </div>
+        </div>
+      </form>
+    </FormProvider>
   );
 }

@@ -2,7 +2,9 @@
   "Global": {
     "load-more": "تحميل المزيد",
     "Available": "متوفر",
-    "Only": "فقط"
+    "Only": "فقط",
+    "Search": "بحث",
+    "Apply": "تطبيق"
   },
   "Product": {
     "Categories": {

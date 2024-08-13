@@ -5,21 +5,16 @@ import { cn } from "@/lib/utils/style-functions/cn";
 interface Props {
   name: string;
   label: string;
-  onClick?: () => void;
   className?: string;
 }
-export default function SearchField({
-  name,
-  label,
-  onClick,
-  className,
-}: Props) {
-  const { register } = useFormContext();
+export default function TextField({ name, label, className }: Props) {
+  const { register, setValue, watch } = useFormContext();
+
   return (
     <label
       htmlFor={name}
       className={cn(
-        "text-primary relative rounded-md border-accent-main",
+        "text-primary relative rounded-md",
         "border-2 hover:border-gray-900 has-[*:focus]:border-gray-900 dark:hover:border-white dark:has-[*:focus]:border-white",
         className,
       )}
@@ -32,11 +27,13 @@ export default function SearchField({
         {...register(name)}
       />
       <button
-        type="submit"
-        className="absolute end-4 top-1/2 block -translate-y-1/2 transition-transform hover:scale-125 active:scale-110"
-        onClick={onClick}
+        className={cn(
+          "absolute end-2 top-1/2 hidden -translate-y-1/2 transition-transform hover:scale-125 active:scale-110",
+          watch(name) && "block",
+        )}
+        onClick={() => setValue(name, "")}
       >
-        <Iconify icon="grommet-icons:search" className="h-auto w-5" />
+        <Iconify icon="ion:close" className="h-auto w-5" />
       </button>
     </label>
   );

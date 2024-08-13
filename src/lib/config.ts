@@ -22,3 +22,6 @@ export const COLORS: Record<Colors, string> = {
   CAMEL: "#C19A6B",
   GOLD: "#FFD700",
 };
+
+export const MIN_PRICE = 0;
+export const MAX_PRICE = 1000;

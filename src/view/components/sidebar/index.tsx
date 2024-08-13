@@ -41,7 +41,7 @@ export default function Sidebar({
     <div
       data-container="true"
       className={cn(
-        "transition-[opacity, display] fixed top-0 z-10 hidden h-full w-full bg-[#0000] backdrop-blur-0 duration-300",
+        "fixed top-0 z-10 hidden h-full w-full bg-[#0000] backdrop-blur-0 transition-[display] duration-300",
         "starting:bg-[#0000] starting:backdrop-blur-0",
         open && "block bg-[#0003] backdrop-blur-sm",
       )}

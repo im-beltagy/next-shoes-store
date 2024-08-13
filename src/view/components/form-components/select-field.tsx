@@ -1,6 +1,13 @@
 "use client";
 
-import { ReactNode, useCallback, useState } from "react";
+import {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useFormContext } from "react-hook-form";
 import { Iconify } from "../iconify";
 import { cn } from "@/lib/utils/style-functions/cn";
@@ -24,6 +31,24 @@ export default function SelectField({ name, options }: props) {
   );
 
   const currentOption = options.find((option) => option.name === watch(name));
+
+  const menuRef = useRef<HTMLDivElement>(null);
+  const [maxHeight, setMaxHeight] = useState(100000);
+
+  useEffect(() => {
+    function handleResize() {
+      setMaxHeight(
+        (innerHeight || 0) -
+          Number(menuRef.current?.getBoundingClientRect().top) -
+          10,
+      );
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [menuRef, isOpen]);
 
   return (
     <div className="relative w-full">
@@ -53,10 +78,12 @@ export default function SelectField({ name, options }: props) {
       </label>
       {/* options */}
       <div
+        ref={menuRef}
         className={cn(
-          "bg-default absolute top-full z-50 mt-2 max-h-[50svh] w-full overflow-y-auto rounded border border-gray-200 shadow-md",
+          "bg-default absolute top-full z-50 mt-2 w-full overflow-y-auto rounded border border-gray-200 shadow-md",
           !isOpen && "hidden",
         )}
+        style={{ maxHeight: `min(${maxHeight}px, 50svh)` }}
       >
         <ul id={`${name}-menu`}>
           {options.map((option) => (
