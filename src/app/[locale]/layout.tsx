@@ -62,6 +62,6 @@ export default async function LocaleLayout({
   );
 }
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
+// export function generateStaticParams() {
+//   return locales.map((locale) => ({ locale }));
+// }

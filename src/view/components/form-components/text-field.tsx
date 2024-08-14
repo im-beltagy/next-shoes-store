@@ -32,6 +32,7 @@ export default function TextField({ name, label, className }: Props) {
           watch(name) && "block",
         )}
         onClick={() => setValue(name, "")}
+        type="button"
       >
         <Iconify icon="ion:close" className="h-auto w-5" />
       </button>

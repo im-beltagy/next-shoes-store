@@ -2,6 +2,7 @@
 
 import { products } from "@/__mock/__products";
 import { PRODUCTS_LIMIT } from "@/lib/config";
+import { Categories, Colors } from "@/lib/types/products";
 
 function convertIntoProductSum(products: any[]) {
   if (typeof products !== "object") return [];
@@ -41,17 +42,38 @@ export async function fetchFeaturedProducts() {
   }
 }
 
+export interface ProductFIlters {
+  name: string;
+  min_price: string;
+  max_price: string;
+  color: string;
+  category: string;
+}
 export async function fetchProducts({
   offset = 0,
   limit = PRODUCTS_LIMIT,
+  filters,
 }: {
   offset?: number;
   limit?: number;
+  filters: ProductFIlters;
 }) {
+  const { name, min_price, max_price, color, category } = filters;
+
   try {
-    const res = await {
-      data: products.slice(offset, offset + limit),
-    };
+    const res = await fetch(
+      "http://localhost:3000/products?" +
+        new URLSearchParams({
+          offset: offset.toString(),
+          limit: limit.toString(),
+          name,
+          min_price,
+          max_price,
+          color,
+          category,
+        }),
+    ).then((res) => res.json());
+
     return res?.data;
   } catch (error) {
     throw new Error("Failed to fetch products");

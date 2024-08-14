@@ -1,39 +1,59 @@
 "use client";
 
-import { fetchProducts } from "@/actions/products-actions";
-import { PRODUCTS_LIMIT } from "@/lib/config";
+import { fetchProducts, ProductFIlters } from "@/actions/products-actions";
+import { INIT_PRODUCTS_COUNT, PRODUCTS_LIMIT } from "@/lib/config";
 import { Product } from "@/lib/types/products";
 import { ProductCard } from "@/view/components/product-card";
 import SectionHeadding from "@/view/components/section-headding";
 import { useTranslations } from "next-intl";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export function StoreProducts({
-  products: initProducts,
+  filters,
 }: Readonly<{
-  products: Product[];
+  filters: ProductFIlters;
 }>) {
   const t = useTranslations("Pages.Store");
 
-  const [products, setProducts] = useState(initProducts);
-  const [available, setAvailable] = useState(true);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [available, setAvailable] = useState(false);
 
+  // Fetch Init Products on The section mountStart
+  const mountRef = useRef<boolean>(false);
+  useEffect(() => {
+    if (!mountRef.current) {
+      mountRef.current = true;
+      return;
+    }
+
+    (async () => {
+      const { data, total } = await fetchProducts({
+        limit: INIT_PRODUCTS_COUNT,
+        filters,
+      });
+      setProducts(data);
+      if (total === data.length) setAvailable(false);
+    })();
+  }, [filters]);
+
+  // Fetch more Products on click
   const handleClick = useCallback(() => {
     if (available) {
       (async () => {
-        const newProducts = await fetchProducts({
+        const { data: newProducts, total } = await fetchProducts({
           limit: PRODUCTS_LIMIT,
           offset: products.length,
+          filters,
         });
 
-        if (newProducts.length === 0) {
-          setAvailable(false);
-        } else {
-          setProducts((prev) => [...prev, ...newProducts]);
-        }
+        setProducts((prev) => {
+          const allProducts = [...prev, ...newProducts];
+          if (total === allProducts.length) setAvailable(false);
+          return allProducts;
+        });
       })();
     }
-  }, [available, products.length]);
+  }, [available, filters, products.length]);
 
   return (
     <section className="bg-second py-section-sm md:py-section-md">

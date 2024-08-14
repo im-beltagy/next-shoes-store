@@ -32,7 +32,7 @@ export default function StoreFilters() {
       </button>
       <Sidebar position="start" open={open} onClose={() => setOpen(false)}>
         <Suspense>
-          <FilterInputs />
+          <FilterInputs handleClose={() => setOpen(false)} />
         </Suspense>
       </Sidebar>
     </>
@@ -49,7 +49,7 @@ const INIT_VALUES = {
   category: "all",
 };
 
-function FilterInputs() {
+function FilterInputs({ handleClose }: { handleClose: () => void }) {
   const { createQueryString } = useQueryString();
   const searchParams = useSearchParams();
   const t = useTranslations("Product");
@@ -113,8 +113,9 @@ function FilterInputs() {
       ];
 
       createQueryString(queries);
+      handleClose();
     },
-    [createQueryString],
+    [createQueryString, handleClose],
   );
 
   return (
