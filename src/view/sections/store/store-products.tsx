@@ -18,14 +18,8 @@ export function StoreProducts({
   const [products, setProducts] = useState<Product[]>([]);
   const [available, setAvailable] = useState(false);
 
-  // Fetch Init Products on The section mountStart
-  const mountRef = useRef<boolean>(false);
+  // Fetch Init Products
   useEffect(() => {
-    if (!mountRef.current) {
-      mountRef.current = true;
-      return;
-    }
-
     (async () => {
       const { data, total } = await fetchProducts({
         limit: INIT_PRODUCTS_COUNT,
