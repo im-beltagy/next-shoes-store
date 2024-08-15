@@ -32,7 +32,7 @@ export function StoreProducts({
         filters,
       });
       setProducts(data);
-      if (total === data.length) setAvailable(false);
+      setAvailable(!(total === data.length));
     })();
   }, [filters]);
 
@@ -48,7 +48,7 @@ export function StoreProducts({
 
         setProducts((prev) => {
           const allProducts = [...prev, ...newProducts];
-          if (total === allProducts.length) setAvailable(false);
+          setAvailable(!(total === allProducts.length));
           return allProducts;
         });
       })();

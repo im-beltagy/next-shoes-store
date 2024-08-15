@@ -1,8 +1,8 @@
 "use server";
 
 import { products } from "@/__mock/__products";
+import { axiosInstance, endpoints } from "@/lib/axios";
 import { PRODUCTS_LIMIT } from "@/lib/config";
-import { Categories, Colors } from "@/lib/types/products";
 
 function convertIntoProductSum(products: any[]) {
   if (typeof products !== "object") return [];
@@ -61,20 +61,19 @@ export async function fetchProducts({
   const { name, min_price, max_price, color, category } = filters;
 
   try {
-    const res = await fetch(
-      "http://localhost:3000/products?" +
-        new URLSearchParams({
-          offset: offset.toString(),
-          limit: limit.toString(),
-          name,
-          min_price,
-          max_price,
-          color,
-          category,
-        }),
-    ).then((res) => res.json());
+    const res = await axiosInstance.get(`${endpoints.products.getAll}`, {
+      params: {
+        offset: offset.toString(),
+        limit: limit.toString(),
+        name,
+        min_price,
+        max_price,
+        color,
+        category,
+      },
+    });
 
-    return res?.data;
+    return res?.data?.data;
   } catch (error) {
     throw new Error("Failed to fetch products");
   }

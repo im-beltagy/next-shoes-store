@@ -6,8 +6,8 @@ export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
 
   const { offset, limit, name, min_price, max_price, color, category } = {
-    offset: Number(searchParams.get("offset")),
-    limit: Number(searchParams.get("limit")),
+    offset: Number(searchParams.get("offset")) || 0,
+    limit: Number(searchParams.get("limit")) || 5,
     name: searchParams.get("name"),
     min_price: searchParams.get("min_price"),
     max_price: searchParams.get("max_price"),
