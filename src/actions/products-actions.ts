@@ -61,17 +61,20 @@ export async function fetchProducts({
   const { name, min_price, max_price, color, category } = filters;
 
   try {
-    const res = await axiosInstance.get(`${endpoints.products.getAll}`, {
-      params: {
-        offset: offset.toString(),
-        limit: limit.toString(),
-        name,
-        min_price,
-        max_price,
-        color,
-        category,
+    const res = await axiosInstance.get(
+      `https://next-shoes-store.vercel.app/api/products`,
+      {
+        params: {
+          offset: offset.toString(),
+          limit: limit.toString(),
+          name,
+          min_price,
+          max_price,
+          color,
+          category,
+        },
       },
-    });
+    );
 
     return res?.data?.data;
   } catch (error) {
