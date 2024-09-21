@@ -1,5 +1,5 @@
+import { LoginView } from "@/view/sections/auth/login-view";
+
 export default async function Page() {
-  return (
-    <section className="dark:bg-card rounded bg-[#fafafa] p-32 shadow-md"></section>
-  );
+  return <LoginView />;
 }

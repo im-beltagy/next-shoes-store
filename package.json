@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "axios": "^1.7.4",
     "clsx": "^2.1.1",
     "js-cookie": "^3.0.5",
@@ -20,7 +21,9 @@
     "react-hook-form": "^7.52.2",
     "react-tiny-popover": "^8.0.4",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-dir": "^4.0.0"
+    "tailwindcss-dir": "^4.0.0",
+    "yup": "^1.4.0",
+    "yup-password": "^0.4.0"
   },
   "devDependencies": {
     "@iconify/react": "^5.0.1",

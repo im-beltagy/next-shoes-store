@@ -55,6 +55,31 @@
     "FAQs": "FAQs",
     "contact": "contact"
   },
+  "Auth": {
+    "Login": {
+      "title": "Welcome Back!",
+      "register": "Don't have an account? <register>Sign up here</register>.",
+      "submit": "Login"
+    },
+    "Email": {
+      "label": "Email",
+      "Errors": {
+        "required": "Email is required",
+        "invalid": "Email is invalid"
+      }
+    },
+    "Password": {
+      "label": "Password",
+      "Errors": {
+        "required": "Password is required",
+        "min_char": "Password must be at least 8 characters",
+        "min_lowercase": "Password must contain at least 1 lower case letter",
+        "min_uppercase": "Password must contain at least 1 upper case letter",
+        "min_number": "Password must contain at least 1 number",
+        "min_symbol": "Password must contain at least 1 special character"
+      }
+    }
+  },
   "Pages": {
     "Home": {
       "Hero": {

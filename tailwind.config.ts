@@ -23,6 +23,20 @@ const config: Config = {
         divider: { light: "#fff7", dark: "#47474740" },
         beige: { dark: "#dacece", light: "#f4f4f4" },
       },
+      keyframes: {
+        "slide-right": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(15%)" },
+        },
+        "slide-left": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-15%)" },
+        },
+      },
+      animation: {
+        "slide-right": "slide-right 1s ease-out infinite alternate",
+        "slide-left": "slide-left 1s ease-out infinite alternate",
+      },
     },
   },
   plugins: [
