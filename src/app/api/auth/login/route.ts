@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { getDateAfterSec } from "../../util";
 
 const isUserExsists = (email: string, password: string) => {
-  if (email === "admin@admin.com" && password === "password") {
+  if (email === "john@example.com" && password === "Password@1") {
     return true;
   }
   return false;
@@ -22,7 +22,9 @@ export async function POST(request: Request) {
   }
 
   if (!process.env.REFRESH_TOKEN_SECRET || !process.env.ACCESS_TOKEN_SECRET)
-    return new Response("Env keys not found", { status: 500 });
+    return new Response(JSON.stringify({ message: "Env keys not found" }), {
+      status: 500,
+    });
 
   if (isUserExsists(email, password)) {
     const access_token = jwt.sign(

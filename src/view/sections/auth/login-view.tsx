@@ -4,7 +4,6 @@ import TextField from "@/view/components/form-components/text-field";
 import { Iconify } from "@/view/components/iconify";
 import { paths } from "@/view/layouts/common/config-navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
 import YupPassword from "yup-password";
@@ -12,11 +11,17 @@ import * as yup from "yup";
 import Image from "next/image";
 import { cn } from "@/lib/utils/style-functions/cn";
 import { useDir } from "@/lib/utils/locale-hooks";
+import { useAuth } from "@/lib/context/auth-context/auth-hook";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useTranslations } from "next-intl";
 YupPassword(yup);
 
 export function LoginView() {
   const t = useTranslations("Auth");
   const dir = useDir();
+
+  const [error, setError] = useState<string | undefined>();
 
   const formMethods = useForm({
     resolver: yupResolver(
@@ -39,8 +44,17 @@ export function LoginView() {
 
   const { handleSubmit } = formMethods;
 
+  const auth = useAuth();
+  const router = useRouter();
+
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
+    const res = await auth.login(data);
+
+    if ("error" in res) {
+      setError(res?.error);
+    } else {
+      router.push(paths.home);
+    }
   });
 
   const renderImage = (
@@ -61,7 +75,7 @@ export function LoginView() {
         {t.rich("Login.register", {
           register: (chunks) => (
             <Link
-              className="text-accent hover:underline"
+              className="text-accent hover:underline dark:text-accent-dark"
               href={paths.auth.register}
             >
               {chunks}
@@ -76,6 +90,20 @@ export function LoginView() {
     <FormProvider {...formMethods}>
       <form onSubmit={onSubmit}>
         <div className="grid gap-3">
+          {error && (
+            <div
+              className="flex items-center rounded-lg bg-orange-100 p-4 text-sm text-yellow-800 dark:bg-orange-300"
+              role="alert"
+            >
+              <Iconify
+                icon="material-symbols:info"
+                className="me-3 inline h-4 w-4 flex-shrink-0"
+              />
+
+              <span className="sr-only">Error</span>
+              <div className="font-semibold tracking-wider">{error}</div>
+            </div>
+          )}
           <TextField
             name="email"
             label={t("Email.label")}
@@ -101,7 +129,7 @@ export function LoginView() {
                   ? "lets-icons:arrow-right-long"
                   : "lets-icons:arrow-left-long"
               }
-              className="animate-slide-right rtl:animate-slide-left block h-auto w-6 self-center rtl:-scale-y-100"
+              className="block h-auto w-6 animate-slide-right self-center rtl:-scale-y-100 rtl:animate-slide-left"
             />
           </button>
         </div>

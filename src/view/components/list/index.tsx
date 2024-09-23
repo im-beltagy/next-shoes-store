@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils/style-functions/cn";
 import { ReactNode } from "react";
 
 type ListItemAction = { link?: string } | { onClick?: () => void };
@@ -5,6 +6,7 @@ type ListItemAction = { link?: string } | { onClick?: () => void };
 type ListItem = ListItemAction & {
   icon?: ReactNode;
   text: string;
+  className?: string;
 };
 
 interface Props {
@@ -19,7 +21,10 @@ export function List({ items }: Props) {
           {"link" in item ? (
             <a
               href={item.link}
-              className="icon-btn flex w-full items-center gap-2"
+              className={cn(
+                "icon-btn flex w-full items-center gap-2",
+                item.className,
+              )}
             >
               {item.icon}
               <span>{item.text}</span>
@@ -28,7 +33,10 @@ export function List({ items }: Props) {
           {"onClick" in item ? (
             <button
               onClick={item.onClick}
-              className="icon-btn flex w-full items-center gap-2"
+              className={cn(
+                "icon-btn flex w-full items-center gap-2",
+                item.className,
+              )}
             >
               {item.icon}
               <span>{item.text}</span>

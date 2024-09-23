@@ -53,7 +53,10 @@
     "store": "store",
     "blog": "blog",
     "FAQs": "FAQs",
-    "contact": "contact"
+    "contact": "contact",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile"
   },
   "Auth": {
     "Login": {

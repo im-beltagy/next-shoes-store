@@ -57,7 +57,9 @@ export default function TextField({
           <Iconify icon="ion:close" className="h-auto w-5" />
         </button>
       </label>
-      {error && <p className="ps-1 pt-1 text-xs text-rose-500">{error}</p>}
+      {typeof error === "string" && (
+        <p className="ps-1 pt-1 text-xs text-rose-500">{error}</p>
+      )}
     </div>
   );
 }
