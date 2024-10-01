@@ -11,5 +11,6 @@ export const endpoints = {
   },
   products: {
     getAll: "/products",
+    getOne: (id: string) => `/products/${id}`,
   },
 };
