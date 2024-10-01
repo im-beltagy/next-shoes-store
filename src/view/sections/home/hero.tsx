@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <main className="bg-beige-dark">
+    <section className="bg-beige-dark">
       <div className="main-container relative grid-cols-12 items-end gap-4 overflow-hidden md:grid">
         <Text />
 
@@ -21,7 +21,7 @@ export default function Hero() {
           <div className="absolute top-0 h-full w-full bg-beige-dark opacity-80 md:hidden"></div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }
 

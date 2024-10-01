@@ -3,8 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import { Cairo, Kavoon, Lalezar, Leckerli_One } from "next/font/google";
 import { Locales } from "@/lib/types/settings";
-import Header from "@/view/layout/header/view";
-import { HEADER_HEIGHT } from "@/lib/config";
+import { AuthProvider } from "@/lib/context/auth-context/auth-provider";
 
 // Base Font
 const cairo = Cairo({
@@ -52,10 +51,7 @@ export default async function LocaleLayout({
         className={`${cairo.variable} ${(locale === "ar" ? lelazar : leckerliOne).variable} ${kavoon.variable} bg-default font-base`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <div className={HEADER_HEIGHT}></div>
-
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

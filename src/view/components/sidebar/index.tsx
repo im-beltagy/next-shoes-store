@@ -64,7 +64,10 @@ export default function Sidebar({
         )}
         style={{ minWidth: `min(${minWidth}, 90vw)` }}
       >
-        <div className={`${HEADER_HEIGHT} flex-shrink-0`} />
+        <div
+          className={"flex-shrink-0"}
+          style={{ height: `${HEADER_HEIGHT}px` }}
+        />
 
         <div className="grid h-full flex-grow grid-rows-[auto_1fr] overflow-hidden p-2">
           {renderCloseBtn}

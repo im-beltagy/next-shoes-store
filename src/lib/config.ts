@@ -2,7 +2,7 @@ import { Colors } from "./types/products";
 
 export const PRODUCTS_LIMIT = 5;
 export const INIT_PRODUCTS_COUNT = 10;
-export const HEADER_HEIGHT = "h-[73px]";
+export const HEADER_HEIGHT = 73;
 
 export const COLORS: Record<Colors, string> = {
   BLACK: "#000000",

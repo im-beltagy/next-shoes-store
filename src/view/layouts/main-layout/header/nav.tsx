@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { navLinks } from "../config-navigation";
 import { useTranslations } from "next-intl";
+import { navLinks } from "../../common/config-navigation";
 
 export default function Nav({ isMenuOpen }: { isMenuOpen: boolean }) {
   const t = useTranslations("Navigation");

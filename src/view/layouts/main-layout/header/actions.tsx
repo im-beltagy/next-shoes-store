@@ -4,6 +4,11 @@ import Link from "next/link";
 import { ThemeToggler } from "@/view/components/theme-toggler";
 import { LocaleButton } from "@/view/components/locale-button";
 import { Iconify } from "@/view/components/iconify";
+import { useAuth } from "@/lib/context/auth-context/auth-hook";
+import { useTranslations } from "next-intl";
+import { paths } from "../../common/config-navigation";
+import Image from "next/image";
+import ProfileButton from "./profile-button";
 
 export default function Actions({
   setIsMenuOpen,
@@ -27,9 +32,7 @@ export default function Actions({
         <Iconify icon="mdi:cart" />
       </Link>
 
-      <Link href="/profile" className="icon-btn">
-        <Iconify icon="iconamoon:profile-fill" />
-      </Link>
+      <ProfileButton />
     </div>
   );
 }

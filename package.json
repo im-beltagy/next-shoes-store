@@ -9,21 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "axios": "^1.7.4",
     "clsx": "^2.1.1",
     "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.2.4",
     "next-intl": "^3.15.3",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.2",
     "react-tiny-popover": "^8.0.4",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-dir": "^4.0.0"
+    "tailwindcss-dir": "^4.0.0",
+    "yup": "^1.4.0",
+    "yup-password": "^0.4.0"
   },
   "devDependencies": {
     "@iconify/react": "^5.0.1",
     "@types/js-cookie": "^3.0.6",
+    "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

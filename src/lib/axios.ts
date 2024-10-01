@@ -5,6 +5,10 @@ export const axiosInstance = axios.create({
 });
 
 export const endpoints = {
+  auth: {
+    login: "/auth/login",
+    refreshToken: "/auth/refresh-token",
+  },
   products: {
     getAll: "/products",
   },
