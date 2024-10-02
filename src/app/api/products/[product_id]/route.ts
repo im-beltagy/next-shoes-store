@@ -7,7 +7,7 @@ function returnMiddleIndex(length: number) {
   return Math.floor(length / 2);
 }
 
-const findItem = (id: string, items: RealProduct[]) => {
+const findItem = (id: string, items: RealProduct[]): null | RealProduct => {
   if (items.length === 0) return null;
   const middleIndex = returnMiddleIndex(items.length);
 

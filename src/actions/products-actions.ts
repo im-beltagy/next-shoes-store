@@ -21,9 +21,8 @@ function convertIntoProductSum(products: any[]) {
 }
 
 export async function fetchNewestProducts() {
+  const lang = cookies().get("NEXT_LOCALE")?.value === "ar" ? "ar" : "en";
   try {
-    const lang = cookies().get("NEXT_LOCALE")?.value === "ar" ? "ar" : "en";
-
     const res = await {
       data: convertIntoProductSum(
         [products[3], products[29], products[12]].map((p) =>
@@ -38,8 +37,8 @@ export async function fetchNewestProducts() {
 }
 
 export async function fetchFeaturedProducts() {
+  const lang = cookies().get("NEXT_LOCALE")?.value === "ar" ? "ar" : "en";
   try {
-    const lang = cookies().get("NEXT_LOCALE")?.value === "ar" ? "ar" : "en";
     const res = await {
       data: convertIntoProductSum(
         [products[11], products[42], products[14]].map((p) =>
