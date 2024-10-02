@@ -1,19 +1,19 @@
 "use server";
 
 import { products } from "@/__mock/__products";
+import { refactorProduct } from "@/app/api/util";
 import { axiosInstance, endpoints } from "@/lib/axios";
 import { PRODUCTS_LIMIT } from "@/lib/config";
+import { cookies } from "next/headers";
 
 function convertIntoProductSum(products: any[]) {
   if (typeof products !== "object") return [];
 
   return products.map((product) => ({
     id: product.id,
-    name_ar: product.name_ar,
-    name_en: product.name_en,
+    name: product.name,
     img: product.img,
-    description_ar: product.description_ar,
-    description_en: product.description_en,
+    description: product.description,
     price: product.price,
     rating: product.rating,
     inStock: product.inStock,
@@ -22,8 +22,14 @@ function convertIntoProductSum(products: any[]) {
 
 export async function fetchNewestProducts() {
   try {
+    const lang = cookies().get("NEXT_LOCALE")?.value === "ar" ? "ar" : "en";
+
     const res = await {
-      data: convertIntoProductSum([products[3], products[29], products[12]]),
+      data: convertIntoProductSum(
+        [products[3], products[29], products[12]].map((p) =>
+          refactorProduct(p, lang),
+        ),
+      ),
     };
     return res?.data;
   } catch (error) {
@@ -33,8 +39,13 @@ export async function fetchNewestProducts() {
 
 export async function fetchFeaturedProducts() {
   try {
+    const lang = cookies().get("NEXT_LOCALE")?.value === "ar" ? "ar" : "en";
     const res = await {
-      data: convertIntoProductSum([products[11], products[42], products[14]]),
+      data: convertIntoProductSum(
+        [products[11], products[42], products[14]].map((p) =>
+          refactorProduct(p, lang),
+        ),
+      ),
     };
     return res?.data;
   } catch (error) {

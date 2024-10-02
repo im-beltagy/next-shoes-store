@@ -1,9 +1,12 @@
 import { products } from "@/__mock/__products";
 import { Categories, Colors } from "@/lib/types/products";
 import { NextRequest } from "next/server";
+import { refactorProduct } from "../util";
+import { defaultLocale } from "@/config-locale";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
+  const lang = request.headers.get("Accept-Language") === "ar" ? "ar" : "en";
 
   const { offset, limit, name, min_price, max_price, color, category } = {
     offset: Number(searchParams.get("offset")) || 0,
@@ -28,7 +31,9 @@ export async function GET(request: NextRequest) {
 
   return Response.json({
     data: {
-      data: filteredProducts.slice(offset, offset + limit),
+      data: filteredProducts
+        .slice(offset, offset + limit)
+        .map((p) => refactorProduct(p, lang)),
       total: filteredProducts.length,
     },
   });

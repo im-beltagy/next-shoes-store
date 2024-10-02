@@ -78,11 +78,9 @@ export const all_colors: Colors[] = [
 
 export interface ProductSum {
   id: string;
-  name_ar: string;
-  name_en: string;
+  name: string;
   img: string;
-  description_ar: string;
-  description_en: string;
+  description: string;
   price: {
     original: string;
     sale: string | null;
@@ -105,6 +103,13 @@ export interface Product extends ProductSum {
   categories: Categories[];
   colors: Colors[];
   relatedProducts: string[];
+}
+
+export interface RealProduct extends Omit<Product, "name" | "description"> {
+  name_ar: string;
+  name_en: string;
+  description_ar: string;
+  description_en: string;
 }
 
 interface SelectFilter {

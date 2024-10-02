@@ -1,6 +1,6 @@
-import { Product } from "@/lib/types/products";
+import { RealProduct } from "@/lib/types/products";
 
-export const products: Product[] = [
+export const products: RealProduct[] = [
   {
     id: "001",
     name_ar: "أحذية أكسفورد كلاسيكية للرجال",

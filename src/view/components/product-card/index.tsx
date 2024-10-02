@@ -10,6 +10,7 @@ import Link from "next/link";
 import { Rating } from "../rating";
 import { useMemo } from "react";
 import { COLORS } from "@/lib/config";
+import { paths } from "@/view/layouts/common/config-navigation";
 
 export function ProductSumCard({
   children,
@@ -93,7 +94,7 @@ export function ProductSumCard({
 
   return (
     <Link
-      href={`/shop/${productSum.id}`}
+      href={`${paths.store}/${productSum.id}`}
       className="group/card bg-card block overflow-hidden rounded-md p-4 shadow"
     >
       {/* Img Container */}
@@ -101,7 +102,7 @@ export function ProductSumCard({
         <Image
           className="w-full transition-transform duration-300 group-hover/card:scale-110"
           src={productSum.img}
-          alt={`${productSum.name_en} preview image`}
+          alt={`${productSum.name} preview image`}
           width={512}
           height={512}
         />
@@ -114,7 +115,7 @@ export function ProductSumCard({
 
       {/* Text */}
       <h4 className="text-primary-dark pb-2 text-xl font-semibold lg:text-2xl">
-        {productSum[`name_${localeCode}`]}
+        {productSum.name}
       </h4>
 
       {/* Rating */}
@@ -125,7 +126,7 @@ export function ProductSumCard({
       {children}
 
       {/* Sum */}
-      {productSum[`description_${localeCode}`]?.split("\n").map((item, i) => (
+      {productSum.description?.split("\n").map((item, i) => (
         <p className="pb-3 font-light tracking-wide" key={i}>
           {item}
         </p>

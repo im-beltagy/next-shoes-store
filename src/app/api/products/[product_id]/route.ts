@@ -1,12 +1,13 @@
 import { products } from "@/__mock/__products";
-import { Product } from "@/lib/types/products";
+import { RealProduct } from "@/lib/types/products";
 import { NextRequest } from "next/server";
+import { refactorProduct } from "../../util";
 
 function returnMiddleIndex(length: number) {
   return Math.floor(length / 2);
 }
 
-const findItem = (id: string, items: Product[]) => {
+const findItem = (id: string, items: RealProduct[]) => {
   if (items.length === 0) return null;
   const middleIndex = returnMiddleIndex(items.length);
 
@@ -24,12 +25,13 @@ export async function GET(
   { params: { product_id } }: { params: { product_id: string } },
 ) {
   const product = findItem(product_id, products);
+  const lang = request.headers.get("Accept-Language") === "ar" ? "ar" : "en";
 
   if (product) {
     return new Response(
       JSON.stringify({
         status: 200,
-        product,
+        product: refactorProduct(product, lang),
       }),
       { status: 200 },
     );
